@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a14e5b6-1b6c-4de1-97f5-601a20d6c644" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,15 +37,15 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="G:\Projects\Django\ManageMe\ManageMe\static\dashboard-owner\images" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\Projects\Django\ManageMe\ManageMe" />
       <recent name="G:\Projects\Django\ManageMe\ManageMe\templates" />
       <recent name="G:\Projects\Django\ManageMe\ManageMe\users\user_api" />
       <recent name="G:\Projects\Django\ManageMe\ManageMe\templates\verify" />
       <recent name="G:\Projects\Django\ManageMe\ManageMe\templates\dashboard-tenant" />
-      <recent name="G:\Projects\Django\ManageMe\ManageMe\static\dash" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\Projects\Django\ManageMe\ManageMe\static\dashboard-owner\images" />
     </key>
   </component>
   <component name="ServiceViewManager">

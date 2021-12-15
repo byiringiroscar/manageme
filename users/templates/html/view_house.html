@@ -1,0 +1,73 @@
+{% extends 'dashboard-owner/dashboard.html' %}
+
+{% load static %}
+{% block content %}
+<section class="content file_manager">
+    <div class="body_scroll">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>Images</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Aero</a></li>
+                        <li class="breadcrumb-item"><a href="file-dashboard.html">File Manager</a></li>
+                        <li class="breadcrumb-item active">Images</li>
+                    </ul>
+                    <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+                </div>
+                <div class="col-lg-5 col-md-6 col-sm-12">
+                    <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i class="zmdi zmdi-arrow-right"></i></button>
+                    <button class="btn btn-success btn-icon float-right" type="button"><i class="zmdi zmdi-upload"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row clearfix">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <ul class="nav nav-tabs pl-0 pr-0">
+                            <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#a2018">2018</a></li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#b2019">2019</a></li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#b2016">2016</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="a2018">
+                                <div class="row clearfix">
+                                    {% for house in house_detail %}
+                                    <div class="col-lg-3 col-md-4 col-sm-12">
+                                        <div class="card">
+                                            <a href="" class="file">
+                                                <div class="hover">
+                                                    <button type="button" class="btn btn-icon btn-icon-mini btn-round btn-danger">
+                                                        <i class="zmdi zmdi-delete"></i>
+                                                    </button>
+                                                </div>
+                                                <div class="image">
+                                                    <img src="{{ house.property_image.url }}" alt="img" class="img-fluid">
+                                                </div>
+                                                <div class="file-name">
+                                                    <p class="m-b-5 text-muted">{{ house.property_name }}</p>
+                                                    <small>Size <span class="date">Posted On: {{house.time_added}}</span></small>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+
+
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock %}

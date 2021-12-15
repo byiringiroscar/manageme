@@ -1,0 +1,19 @@
+{% extends 'dashboard-owner/dashboard.html' %}
+
+{% load static %}
+{% block content %}
+
+<center>
+    {% if searched  %}
+
+    <h1>you searched for {{searched}}</h1>
+
+    {% else %}
+    <h1>hey you forgot to search</h1>
+
+    {% endif %}
+
+</center>
+
+
+{% endblock %}

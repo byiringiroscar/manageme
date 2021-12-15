@@ -51,7 +51,7 @@ def verify_view(request):
             print(user.user_login)
             # send code through twillio
 
-            # send_sms(code_user, user.phone_number)
+            send_sms(code_user, user.phone_number)
         if form.is_valid():
             num = form.cleaned_data.get('number')
             if str(code) == num:
@@ -74,7 +74,7 @@ def verify_tenant(request):
             print(code_user)
             # send code to phone through twillio
 
-            # send_sms(code_user, user.phone_number)
+            send_sms(code_user, user.phone_number)
         if form.is_valid():
             num = form.cleaned_data.get('number')
             if str(code) == num:

@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from codes.forms import CodeForm
 from users.models import User
 from .utilis import send_sms
@@ -40,6 +40,7 @@ def sign_in(request):
 
 
 def verify_view(request):
+
     form = CodeForm(request.POST or None)
     pk = request.session.get('pk')
     if pk:
@@ -60,7 +61,13 @@ def verify_view(request):
                 return redirect('dashboard')
             else:
                 return redirect('sign_in')
-    return render(request, 'html/verify.html', {'form': form})
+    user_acti = request.user
+    # context = {
+    #         'form': form,
+    #
+    #
+    #     }
+    return render(request, 'html/verify_cre.html', {'form': form})
 
 
 def verify_tenant(request):
@@ -82,9 +89,10 @@ def verify_tenant(request):
                 login(request, user)
                 return redirect('tenant')
             else:
+
                 return redirect('sign_in')
 
-    return render(request, 'html/verify.html', {'form': form})
+    return render(request, 'html/verify_cre.html', {'form': form})
 
 
 def sign_up(request):
@@ -103,7 +111,7 @@ def sign_up(request):
     return render(request, 'html/signup.html', context)
 
 
-# @login_required
+@login_required
 def lessor(request):
     user = request.user
     property_car_count = Property_registration.objects.filter(owner_name=user).filter(property_type='car').count()
@@ -130,7 +138,7 @@ def tenant(request):
     }
     return render(request, 'html/tenant.html', context)
 
-
+@login_required
 def post_property(request):
     form = Register_property_Form()
     if request.method == 'POST':
@@ -146,7 +154,7 @@ def post_property(request):
     }
     return render(request, 'dashboard-owner/register_property.html', context)
 
-
+@login_required
 def view_property_car(request):
     user = request.user
     car_property = Property_registration.objects.filter(property_type='car').filter(owner_name=user)
@@ -155,7 +163,7 @@ def view_property_car(request):
     }
     return render(request, 'html/view_car.html', context)
 
-
+@login_required
 def view_property_others(request):
     user = request.user
     other_property = Property_registration.objects.filter(property_type='other').filter(owner_name=user)
@@ -164,7 +172,7 @@ def view_property_others(request):
     }
     return render(request, 'html/view_other.html', context)
 
-
+@login_required
 def view_property_land(request):
     user = request.user
     land_property = Property_registration.objects.filter(property_type='land').filter(owner_name=user)
@@ -173,7 +181,7 @@ def view_property_land(request):
     }
     return render(request, 'html/view_land.html', context)
 
-
+@login_required
 def view_property_house(request):
     user = request.user
     house_property = Property_registration.objects.filter(property_type='house').filter(owner_name=user)
@@ -184,7 +192,7 @@ def view_property_house(request):
 
 
 # search function area for lessor
-
+@login_required
 def search_property(request):
     if request.method == 'POST':
         searched = request.POST['searched']
@@ -200,7 +208,7 @@ def search_property(request):
 
 
 # search area for tenant
-
+@login_required
 def search_property_tenant(request):
     if request.method == 'POST':
         q = request.POST['q']
@@ -218,7 +226,7 @@ def search_property_tenant(request):
 
 
 # request area
-
+@login_required
 def request_pro(request, pk):
     req = Property_registration.objects.get(id=pk)
 

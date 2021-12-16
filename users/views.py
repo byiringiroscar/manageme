@@ -111,7 +111,7 @@ def sign_up(request):
     return render(request, 'html/signup.html', context)
 
 
-@login_required
+# @login_required
 def lessor(request):
     user = request.user
     property_car_count = Property_registration.objects.filter(owner_name=user).filter(property_type='car').count()

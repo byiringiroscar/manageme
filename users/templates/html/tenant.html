@@ -1,4 +1,92 @@
 {% extends 'dashboard-tenant/dashboard.html' %}
 
 {% block content %}
+<section class="content">
+    <div class="body_scroll">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+                    <div class="card">
+                        <div class="blogitem mb-5">
+                            <div class="blogitem-image">
+                                <a href=""><img src="{% static 'dash/assets/images/image-gallery/car.png' %}" alt="blog image" ></a>
+
+                            </div>
+                            <div class="blogitem-content">
+                                <div class="blogitem-header">
+                                        <div class="container">
+                                            <h5>Total: 0</h5>
+                                        <h5>Used: 0</h5>
+                                        </div>
+                                </div>
+                                <h5><a href="blog-details.html">Property Name: Car</a></h5>
+                                <p>It is a long established .</p>
+                                <a href="blog-details.html" class="btn btn-info">View More</a>
+                            </div>
+                        </div>
+                        <div class="blogitem mb-5">
+                            <div class="blogitem-image">
+                                <a href=""><img src="{% static 'dash/assets/images/image-gallery/house.jpg' %}" alt="blog image"></a>
+
+                            </div>
+                            <div class="blogitem-content">
+                                <div class="blogitem-header">
+                                    <div class="container">
+                                            <h5>Total: 0</h5>
+                                        <h5>Used: 0</h5>
+                                        </div>
+                                </div>
+                                <h5><a href="blog-details.html">Property Name: House</a></h5>
+                                <p>It is a long established .</p>
+                                <a href="blog-details.html" class="btn btn-info">View More</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="card">
+                        <div class="blogitem mb-5">
+                            <div class="blogitem-image">
+                                <a href=""><img src="{% static 'dash/assets/images/image-gallery/other.jpg' %}" alt="blog image"></a>
+
+                            </div>
+                            <div class="blogitem-content">
+                                <div class="blogitem-header">
+                                        <div class="container">
+                                            <h5>Total: 0</h5>
+                                        <h5>Used: 0</h5>
+                                        </div>
+                                </div>
+                                <h5><a href="blog-details.html">Property Nme: Others</a></h5>
+                                <p>It is a long established .</p>
+                                <a href="blog-details.html" class="btn btn-info">View More</a>
+                            </div>
+                        </div>
+                        <div class="blogitem mb-5">
+                            <div class="blogitem-image">
+                                <a href="{% url 'view_land' %}"><img src="{% static 'dash/assets/images/image-gallery/lan.jpg' %}" alt="blog image"></a>
+
+                            </div>
+                            <div class="blogitem-content">
+                                <div class="blogitem-header">
+<!--                                    card area for detail-->
+                                    <div class="container">
+                                        <h5>Total: 0</h5>
+                                        <h5>Used: 0</h5>
+                                    </div>
+                                </div>
+                                <h5><a href="blog-details.html">Property Name: Lands</a></h5>
+                                <p>It is a long established .</p>
+                                <a href="blog-details.html" class="btn btn-info">View More</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}

@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a14e5b6-1b6c-4de1-97f5-601a20d6c644" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/static/dash/assets/images/icomann.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/templates/html/verify_cre.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManageMe/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ManageMe/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/templates/html/tenant.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/html/tenant.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users/utilis.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/utilis.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
     </list>
@@ -90,10 +88,10 @@
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1366.728@0.0.1536.824" timestamp="1639500759728" />
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1639628961355" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1639584335477">
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1639666042555">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1639584335477" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1639666042555" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1638976544339">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

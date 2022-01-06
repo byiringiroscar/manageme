@@ -2,60 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a14e5b6-1b6c-4de1-97f5-601a20d6c644" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/media/images/1244.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/images/Big_hand_seed_to_farmers_bag._Creative_people_collection..jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/images/CALB5996.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/images/car.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/images/ftp.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/images/i2_RyQm6MM.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/images/medium_with_watermark_29468826_10215760656868412_6776413753962397696_n.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/images/oscar_sNHOt03.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/images/oscar_uaxC0lE.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/profile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/dash/assets/images/image-gallery/5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/dash/assets/images/image-gallery/profile.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/dash/assets/images/image-gallery/profileNot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/migrations/0005_auto_20211222_1226.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/migrations/0006_auto_20211223_1651.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/migrations/0007_request_property_time_done.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/migrations/0008_auto_20220105_2033.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/templates/html/all_notification_lessor.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/templates/html/car_tenant_approved.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/templates/html/house_tenant_approved.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/templates/html/land_tenant_approved.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/templates/html/notification_profile.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/templates/html/other_tenant_approved.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/templates/html/requ.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/templates/html/view_property_detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/templates/html/view_property_detail_tenant.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/templates/html/view_rent_car_detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/templates/html/view_rent_house_detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/templates/html/view_rent_land_detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/templates/html/view_rent_other_detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/templates/html/view_request_tenant_all.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/templates/html/view_request_tenant_detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/users/templates/html/all_notification_tenant.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/users/templates/html/profile_lessor.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/users/templates/html/profile_tenant.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManageMe/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ManageMe/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/dash/assets/images/profile_av.202c9c0df7b7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/dash/assets/images/profile_av.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/dash/assets/images/profile_av.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/dashboard-owner/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard-owner/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard-owner/register_property.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard-owner/register_property.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/dashboard-tenant/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard-tenant/dashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/templates/html/lessor.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/html/lessor.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/templates/html/search_property.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/html/search_property.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/templates/html/search_property_tenant.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/html/search_property_tenant.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/templates/html/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/html/signup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/templates/html/tenant.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/html/tenant.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/templates/html/view_car.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/html/view_car.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/templates/html/view_house.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/html/view_house.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/templates/html/view_land.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/html/view_land.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/templates/html/view_other.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/html/view_other.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/utilis.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/utilis.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -153,11 +108,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1639666042555" />
-    <state x="2303" y="128" width="672" height="600" key="search.everywhere.popup" timestamp="1641199855232">
-      <screen x="1920" y="0" width="1366" height="728" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1641464155292">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="431" y="145" width="756" height="680" key="search.everywhere.popup/0.0.1536.824/1920.0.1366.728@0.0.1536.824" timestamp="1640848055218" />
     <state x="2303" y="128" width="672" height="600" key="search.everywhere.popup/0.0.1536.824/1920.0.1366.728@1920.0.1366.728" timestamp="1641199855232" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1638976544339" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1641464155292" />
   </component>
 </project>

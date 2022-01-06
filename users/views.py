@@ -202,6 +202,10 @@ def tenant(request):
         property_requested__property_type='land').count()
     other_renting = Request_Property.objects.filter(user_request=user).filter(status_view='approved').filter(
         property_requested__property_type='other').count()
+    # notification related with denied and approve request
+    all_notification_deny_and_approve = Q(Q(status_view='approved') | Q(status_view='denied'))
+    request_property_all_deny_approve = Request_Property.objects.filter(all_notification_deny_and_approve).filter(
+        user_request=user).order_by('-id')
 
     context = {
         'user': user,
@@ -210,6 +214,8 @@ def tenant(request):
         'house_renting': house_renting,
         'land_renting': land_renting,
         'other_renting': other_renting,
+        # notification related with deny and approving
+        'notification_all': request_property_all_deny_approve,
 
     }
     return render(request, 'html/tenant.html', context)
@@ -368,6 +374,7 @@ def notification_detail(request, id):
     return render(request, 'html/notification_profile.html', context)
 
 
+# view all notification lessor
 def all_notification_lessor(request):
     user = request.user
     request_property_all = Request_Property.objects.filter(owner_name=user).filter(status_view='request').order_by(
@@ -377,6 +384,19 @@ def all_notification_lessor(request):
     }
 
     return render(request, 'html/all_notification_lessor.html', context)
+
+
+# view all notification tenant
+def all_notification_tenant(request):
+    user = request.user
+    all_notification_deny_and_approve = Q(Q(status_view='approved') | Q(status_view='denied'))
+    request_property_all_deny_approve = Request_Property.objects.filter(all_notification_deny_and_approve).filter(
+        user_request=user).order_by('-id')
+    print('not all:', request_property_all_deny_approve)
+    context = {
+        'notification_tenant': request_property_all_deny_approve
+    }
+    return render(request, 'html/all_notification_tenant.html', context)
 
 
 # section to decline request you made on property
@@ -479,6 +499,23 @@ def view_rent_other_detail(request, id):
         'other_approved': tenant_property_approved,
     }
     return render(request, 'html/view_rent_other_detail.html', context)
+
+
+def profile_tenant(request):
+    user = request.user
+    context = {
+        'user': user
+    }
+    return render(request, 'html/profile_tenant.html', context)
+
+
+# profile for lessor
+def profile_lessor(request):
+    user = request.user
+    context = {
+        'user': user
+    }
+    return render(request, 'html/profile_lessor.html', context)
 
 
 def test_view(req):

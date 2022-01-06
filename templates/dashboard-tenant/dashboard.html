@@ -98,72 +98,28 @@
                 <li class="header">Notifications</li>
                 <li class="body">
                     <ul class="menu list-unstyled">
+                        {% for notification_all in notification_all %}
                         <li>
                             <a href="javascript:void(0);">
                                 <div class="icon-circle bg-blue"><i class="zmdi zmdi-account"></i></div>
                                 <div class="menu-info">
-                                    <h4>8 New Members joined</h4>
-                                    <p><i class="zmdi zmdi-time"></i> 14 mins ago </p>
+                                    <h4>Lessor: {{ notification_all.property_requested.owner_name }}</h4>
+                                    <p>Phone Number: {{ notification_all.property_requested.owner_name.phone_number }}</p>
+                                    <p>Property Name: {{ notification_all.property_requested.property_name }}</p>
+                                    <p><i class="zmdi zmdi-time"></i> {{ notification_all.time_done }} </p>
+                                    {% if notification_all.status_view == 'approved' %}
+                                    <i class="zmdi zmdi-hc-fw" style="color: green;"></i><span class="badge badge-success">Approved</span>
+                                    {% elif notification_all.status_view == 'denied' %}
+                                    <i class="zmdi zmdi-hc-fw" style="color: red;"></i><span class="badge badge-danger"> Denied</span>
+                                    {% endif %}
                                 </div>
                             </a>
                         </li>
-                        <li>
-                            <a href="javascript:void(0);">
-                                <div class="icon-circle bg-amber"><i class="zmdi zmdi-shopping-cart"></i></div>
-                                <div class="menu-info">
-                                    <h4>4 Sales made</h4>
-                                    <p><i class="zmdi zmdi-time"></i> 22 mins ago </p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);">
-                                <div class="icon-circle bg-red"><i class="zmdi zmdi-delete"></i></div>
-                                <div class="menu-info">
-                                    <h4><b>Nancy Doe</b> Deleted account</h4>
-                                    <p><i class="zmdi zmdi-time"></i> 3 hours ago </p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);">
-                                <div class="icon-circle bg-green"><i class="zmdi zmdi-edit"></i></div>
-                                <div class="menu-info">
-                                    <h4><b>Nancy</b> Changed name</h4>
-                                    <p><i class="zmdi zmdi-time"></i> 2 hours ago </p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);">
-                                <div class="icon-circle bg-grey"><i class="zmdi zmdi-comment-text"></i></div>
-                                <div class="menu-info">
-                                    <h4><b>John</b> Commented your post</h4>
-                                    <p><i class="zmdi zmdi-time"></i> 4 hours ago </p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);">
-                                <div class="icon-circle bg-purple"><i class="zmdi zmdi-refresh"></i></div>
-                                <div class="menu-info">
-                                    <h4><b>John</b> Updated status</h4>
-                                    <p><i class="zmdi zmdi-time"></i> 3 hours ago </p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);">
-                                <div class="icon-circle bg-light-blue"><i class="zmdi zmdi-settings"></i></div>
-                                <div class="menu-info">
-                                    <h4>Settings Updated</h4>
-                                    <p><i class="zmdi zmdi-time"></i> Yesterday </p>
-                                </div>
-                            </a>
-                        </li>
+                        {% endfor %}
+
                     </ul>
                 </li>
-                <li class="footer"> <a href="javascript:void(0);">View All Notifications</a> </li>
+                <li class="footer"> <a href="{% url 'all_notification_tenant' %}">View All Notifications</a> </li>
             </ul>
         </li>
         <li class="dropdown">
@@ -224,7 +180,7 @@
         <ul class="list">
             <li>
                 <div class="user-info">
-                    <a class="image" href=""><img src="{{ user.user_image.url }}" alt="User"></a>
+                    <a class="image" href="{% url 'profile_tenant' %}"><img src="{{ user.user_image.url }}" alt="User"></a>
                     <div class="detail">
                         <h4>{{user}}</h4>
                         <small>Tenant</small>
@@ -293,47 +249,6 @@
                         <li data-theme="blush" class="active"><div class="blush"></div></li>
                     </ul>
                 </div>
-<!--                <div class="card">-->
-<!--                    <h6>General Settings</h6>-->
-<!--                    <ul class="setting-list list-unstyled">-->
-<!--                        <li>-->
-<!--                            <div class="checkbox">-->
-<!--                                <input id="checkbox1" type="checkbox">-->
-<!--                                <label for="checkbox1">Report Panel Usage</label>-->
-<!--                            </div>-->
-<!--                        </li>-->
-<!--                        <li>-->
-<!--                            <div class="checkbox">-->
-<!--                                <input id="checkbox2" type="checkbox" checked="">-->
-<!--                                <label for="checkbox2">Email Redirect</label>-->
-<!--                            </div>-->
-<!--                        </li>-->
-<!--                        <li>-->
-<!--                            <div class="checkbox">-->
-<!--                                <input id="checkbox3" type="checkbox" checked="">-->
-<!--                                <label for="checkbox3">Notifications</label>-->
-<!--                            </div>-->
-<!--                        </li>-->
-<!--                        <li>-->
-<!--                            <div class="checkbox">-->
-<!--                                <input id="checkbox4" type="checkbox">-->
-<!--                                <label for="checkbox4">Auto Updates</label>-->
-<!--                            </div>-->
-<!--                        </li>-->
-<!--                        <li>-->
-<!--                            <div class="checkbox">-->
-<!--                                <input id="checkbox5" type="checkbox" checked="">-->
-<!--                                <label for="checkbox5">Offline</label>-->
-<!--                            </div>-->
-<!--                        </li>-->
-<!--                        <li>-->
-<!--                            <div class="checkbox">-->
-<!--                                <input id="checkbox6" type="checkbox" checked="">-->
-<!--                                <label for="checkbox6">Location Permission</label>-->
-<!--                            </div>-->
-<!--                        </li>-->
-<!--                    </ul>-->
-<!--                </div>-->
             </div>
         </div>
         <div class="tab-pane right_chat" id="chat">

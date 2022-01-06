@@ -183,7 +183,7 @@
         <ul class="list">
             <li>
                 <div class="user-info">
-                    <a class="image" href="profile.html"><img src="{{ user.user_image.url }}" alt="User"></a>
+                    <a class="image" href="{% url 'profile_lessor' %}"><img src="{{ user.user_image.url }}" alt="User"></a>
                     <div class="detail">
                         <h4>{{user}}</h4>
                         <small>Lessor</small>

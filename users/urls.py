@@ -35,6 +35,8 @@ urlpatterns = [
     path('notification_detail/<int:id>/', views.notification_detail, name='notification_detail'),
     # view all notification
     path('all_notification_lessor/', views.all_notification_lessor, name='all_notification_lessor'),
+    # view all notification tenant
+    path('all_notification_tenant/', views.all_notification_tenant, name='all_notification_tenant'),
     # decline and delete request of property tenant made
     path('decline_request_property/<int:pk>/', views.decline_request_property, name='decline_request_property'),
     # view all request from tenant
@@ -61,6 +63,10 @@ urlpatterns = [
     path('view_rent_land_detail/<int:id>/', views.view_rent_land_detail, name='view_rent_land_detail'),
     # view renting other and payment option
     path('view_rent_other_detail/<int:id>/', views.view_rent_other_detail, name='view_rent_other_detail'),
+    # profile tenant
+    path('profile_tenant/', views.profile_tenant, name='profile_tenant'),
+    # profile lessor
+    path('profile_lessor/', views.profile_lessor, name='profile_lessor'),
 
 
 ]

@@ -53,9 +53,9 @@ def verify_view(request):
         if not request.POST:
             print(code_user)
             print(user.user_login)
-            # send code through twillio
+            # send code through intouch sms
 
-            # send_sms(code_user, user.phone_number)
+            send_sms(code_user, user.phone_number)
         if form.is_valid():
             num = form.cleaned_data.get('number')
             if str(code) == num:
@@ -77,9 +77,9 @@ def verify_tenant(request):
         code_user = f"{user.name}: {user.code}"
         if not request.POST:
             print(code_user)
-            # send code to phone through twillio
+            # send code to phone through intouch sms
 
-            # send_sms(code_user, user.phone_number)
+            send_sms(code_user, user.phone_number)
         if form.is_valid():
             num = form.cleaned_data.get('number')
             if str(code) == num:

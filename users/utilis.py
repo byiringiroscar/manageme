@@ -1,3 +1,6 @@
+import requests
+
+
 import os
 from twilio.rest import Client
 
@@ -7,11 +10,15 @@ client = Client(account_sid, auth_token)
 
 
 def send_sms(user_code, phone_number):
-    message = client.messages \
-        .create(
-        body=f"hi your verification code from ManageMe is - {user_code}",
-        from_='+18164954060',
-        to=f'{phone_number}'
-    )
+    data = {
+        'recipients': f'{phone_number}',
+        'message': f'Confirm this Pin in order to login - {user_code}',
+        'sender': '+250786405263',
+    }
 
-    print(message.sid)
+    r = requests.post('https://www.intouchsms.co.rw/api/sendsms/.json', data,
+                      auth=('byiringoroscar@gmail.com', 'oscarlewis.O1'))
+    print(r.json(), r.status_code)
+
+
+

@@ -31,7 +31,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-sm-12">
-                <form class="card auth_form" action="" method="POST">
+                <form class="card auth_form" action="" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="header">
 <!--                        <img class="logo" src="{% static 'dash/assets/images/logo.svg' %}" alt="">-->
@@ -49,6 +49,9 @@
                         </div>
                         <div class="input-group mb-2">
                             {{form.user_login|as_crispy_field}}
+                        </div>
+                        <div class="input-group mb-2">
+                            {{form.user_image|as_crispy_field}}
                         </div>
                         <div class="input-group mb-2">
                             {{form.password|as_crispy_field}}

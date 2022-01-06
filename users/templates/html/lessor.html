@@ -21,12 +21,12 @@
                                 <div class="blogitem-header">
                                         <div class="container">
                                             <h5>Total: {{property_car}}</h5>
-                                        <h5>Used: 0</h5>
+                                        <h5>Used: {{used_car}}</h5>
                                         </div>
                                 </div>
                                 <h5><a href="blog-details.html">Property Name: Car</a></h5>
                                 <p>It is a long established .</p>
-                                <a href="blog-details.html" class="btn btn-info">View More</a>
+                                <a href="{% url 'view_car' %}" class="btn btn-info">View More</a>
                             </div>
                         </div>
                         <div class="blogitem mb-5">
@@ -37,13 +37,13 @@
                             <div class="blogitem-content">
                                 <div class="blogitem-header">
                                     <div class="container">
-                                            <h5>Total: {{property_land}}</h5>
-                                        <h5>Used: 0</h5>
+                                            <h5>Total: {{property_house}}</h5>
+                                        <h5>Used: {{used_house}}</h5>
                                         </div>
                                 </div>
                                 <h5><a href="blog-details.html">Property Name: House</a></h5>
                                 <p>It is a long established .</p>
-                                <a href="blog-details.html" class="btn btn-info">View More</a>
+                                <a href="{% url 'view_house' %}" class="btn btn-info">View More</a>
                             </div>
                         </div>
 
@@ -60,12 +60,12 @@
                                 <div class="blogitem-header">
                                         <div class="container">
                                             <h5>Total: {{property_other}}</h5>
-                                        <h5>Used: 0</h5>
+                                        <h5>Used: {{used_other}}</h5>
                                         </div>
                                 </div>
-                                <h5><a href="blog-details.html">Property Nme: Others</a></h5>
+                                <h5><a href="blog-details.html">Property Name: Others</a></h5>
                                 <p>It is a long established .</p>
-                                <a href="blog-details.html" class="btn btn-info">View More</a>
+                                <a href="{% url 'view_others' %}" class="btn btn-info">View More</a>
                             </div>
                         </div>
                         <div class="blogitem mb-5">
@@ -78,12 +78,12 @@
 <!--                                    card area for detail-->
                                     <div class="container">
                                         <h5>Total: {{property_land}}</h5>
-                                        <h5>Used: 20</h5>
+                                        <h5>Used: {{used_land}}</h5>
                                     </div>
                                 </div>
                                 <h5><a href="blog-details.html">Property Name: Lands</a></h5>
-                                <p>It is a long established .</p>
-                                <a href="blog-details.html" class="btn btn-info">View More</a>
+<!--                                <p>It is a long established .</p>-->
+                                <a href="{% url 'view_land' %}" class="btn btn-info">View More</a>
                             </div>
                         </div>
 

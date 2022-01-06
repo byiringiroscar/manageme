@@ -1,0 +1,104 @@
+{% extends 'dashboard-tenant/dashboard.html' %}
+
+
+
+{% block content %}
+{% load static %}
+<section class="content">
+    <div class="body_scroll">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>Product Detail</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Home</a></li>
+
+                        <li class="breadcrumb-item active">Property Detail</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row clearfix">
+
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="body">
+                            <div class="row">
+
+                                <div class="col-xl-3 col-lg-4 col-md-12">
+                                    <div class="preview preview-pic tab-content">
+                                        <div class="tab-pane active" id="product_1"><img src="{{ prop_detail.property_image.url }}" class="img-fluid" alt="" /></div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-xl-9 col-lg-8 col-md-12">
+                                    <div class="product details">
+                                        <h3 class="product-title mb-0">Property name: {{prop_detail.property_name}}</h3>
+
+                                        <h5 class="price mt-0">Price per month: <span class="col-amber">{{prop_detail.amount_per_month}} Frw</span></h5>
+
+                                        <hr>
+                                        <p class="product-description">{{prop_detail.detail}}</p>
+
+
+
+
+                                        <form action="" method="POST">
+                                            {% csrf_token %}
+                                            <div class="action">
+                                                
+                                                {% if remove_request and remove_btn_user %}
+                                                <a href="{% url 'decline_request_property' prop_detail.id %}"><button class="btn btn-danger waves-effect" type="button">Decline Request</button></a>
+                                                {% else %}
+                                                <a href="{% url 'request_pro' prop_detail.id %}"><button class="btn btn-primary waves-effect" type="button">Request Property</button></a>
+                                                {% endif %}
+
+
+
+
+
+
+                                        </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="body">
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#description">Description</a></li>
+
+                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#about">About</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="body">
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="description">
+                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+                                </div>
+                                <div class="tab-pane" id="about">
+                                    <h6>Where does it come from?</h6>
+                                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

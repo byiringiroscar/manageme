@@ -1,0 +1,112 @@
+{% extends 'dashboard-owner/dashboard.html' %}
+
+{% load static %}
+{% block content %}
+
+<section class="content">
+    <div class="body_scroll">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>Profile</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'dashboard' %}"><i class="zmdi zmdi-home"></i> Home</a></li>
+                        <li class="breadcrumb-item active">Profile</li>
+                    </ul>
+                    <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+                </div>
+                <div class="col-lg-5 col-md-6 col-sm-12">
+                    <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i class="zmdi zmdi-arrow-right"></i></button>
+                    <a href="profile-edit.html" class="btn btn-info btn-icon float-right"><i class="zmdi zmdi-edit"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row clearfix">
+                {% for notification in notification %}
+
+                <div class="col-lg-4 col-md-12">
+                    <div class="card mcard_3">
+                        <div class="body">
+                            <a href=""><img src="{{ notification.user_request.user_image.url }}" class="rounded-circle shadow " alt="" ></a>
+                            <h4 class="m-t-10">Names: {{notification.user_request}}</h4>
+                            <div class="row">
+
+                                <hr>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="body">
+                            <small class="text-muted">Phone: </small>
+                            <p>{{notification.user_request.phone_number}}</p>
+                            <hr>
+                            {% if notification.property_requested.available == True %}
+                            <div class="jsdemo-notification-button">
+
+                                <a href="{% url 'approve_property' notification.id %}" ><button type="button" class="btn btn-raised m-b-10 btn-success waves-effect ti-control-forward" data-placement-from="bottom" data-placement-align="center" data-animate-enter="" data-animate-exit="" data-color-name="alert-success"> APPROVE TO USE THIS PROPERTY </button></a>
+
+                            </div>
+                            <div class="jsdemo-notification-button">
+
+                            <a href="{% url 'deny_property' notification.id %}"><button type="button" class="btn btn-raised m-b-10 btn-danger waves-effect ti-trash" data-placement-from="bottom" data-placement-align="bottom" data-animate-enter="center" data-animate-exit="" data-color-name="alert-danger"> DENY TO USE THIS PROPERTY </button></a>
+                            </div>
+
+
+                            {% endif %}
+                            <hr>
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-8 col-md-12">
+                    <div class="col-lg-12">
+                    <div class="card">
+                        <div class="body">
+                            <h5><strong>Property Name: </strong>{{notification.property_requested.property_name}}</h5>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6">
+                                    <address>
+                                        <strong>Property Address.</strong><br>
+                                        <abbr ><b>Location:</b></abbr>{{notification.property_requested.location}}<br>
+                                        <abbr ><b>Owner Phone:</b></abbr>{{notification.property_requested.owner_name.phone_number}}
+                                    </address>
+                                    {% if notification.property_requested.available %}
+                                    <p class="mb-0"><strong>Property Availability: </strong> <span class="badge badge-success">Available</span></p>
+                                    {% else %}
+                                    <p class="mb-0"><strong>Property Availability: </strong> <span class="badge badge-info">Not Available</span></p>
+                                    {% endif %}
+                                    <span class="blogitem-date"><strong>Time Posted: </strong> {{notification.property_requested.time_added }}</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <div class="card">
+                        <div class="body">
+                            <div id="calendar">
+
+                                <div class="blogitem-image">
+
+                                <a href="blog-details.html"><img src="{{ notification.property_requested.property_image.url }}" alt="blog image" height="450" width="800"></a>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

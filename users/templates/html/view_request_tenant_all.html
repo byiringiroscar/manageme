@@ -1,0 +1,84 @@
+{% extends 'dashboard-tenant/dashboard.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<section class="content">
+    <div class="body_scroll">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>Project list</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'tenant' %}"><i class="zmdi zmdi-home"></i> Home</a></li>
+                        <li class="breadcrumb-item">View Request</li>
+
+                    </ul>
+                    <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+                </div>
+
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row clearfix">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="card project_list">
+                        <div class="table-responsive">
+                            <table class="table table-hover c_table theme-color">
+                                <thead>
+                                    <tr>
+                                        <th style="width:50px;">Name</th>
+                                        <th class="hidden-sm-down"></th>
+                                        <th class="hidden-sm-down">Property Name</th>
+                                        <th class="hidden-sm-down" width="150px">Status</th>
+                                        <th>Action</th>
+                                        <th class="hidden-sm-down">Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% for notification in notification %}
+                                    <tr>
+                                        <a href="index.html">
+                                        <td>
+                                            <img class="rounded avatar" src="{% static 'dash/assets/images/xs/avatar3.jpg' %}" alt="">
+                                        </td>
+                                        <td class="hidden-sm-down">
+                                            <a class="single-user-name" href="javascript:void(0);">{{notification.property_requested.owner_name}}</a><br>
+                                            <small>{{notification.property_requested.owner_name.phone_number}}</small><br>
+                                            <small>{{notification.property_requested.owner_name.user_login}}</small>
+                                        </td>
+                                        <td class="hidden-sm-down">
+                                            <strong>{{notification.property_requested.property_name}}</strong><br>
+                                            <small>Amount: {{notification.property_requested.amount_per_month}} Frw</small>
+                                        </td>
+                                        <td class="hidden-sm-down">
+                                            <span class="badge badge-success">Available</span>
+                                        </td>
+                                        <td><a href=""><button class="btn btn-danger waves-effect" type="button">Decline</button></a>
+
+                                        </td>
+
+                                        <td class="hidden-sm-down">{{notification.property_requested.time_added}}</td>
+                                        </a>
+                                    </tr>
+                                {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <ul class="pagination pagination-primary mt-4">
+                            <li class="page-item active"><a class="page-link" href="javascript:void(0);">1</a></li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0);">4</a></li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0);">5</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

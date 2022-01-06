@@ -1,0 +1,183 @@
+{% extends 'dashboard-owner/dashboard.html' %}
+
+
+
+{% block content %}
+{% load static %}
+<section class="content">
+    <div class="body_scroll">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>Product Detail</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'dashboard' %}"><i class="zmdi zmdi-home"></i> Home</a></li>
+
+                        <li class="breadcrumb-item active">Property Detail</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row clearfix">
+                {% if property_tenant %}
+                <div class="col-lg-6 col-md-6">
+                    <div class="card">
+                        <div class="body">
+                            <div class="row">
+
+                                <div class="col-xl-8 col-lg-4 col-md-12">
+                                    <div class="preview preview-pic tab-content">
+                                        <div class="tab-pane active" id="product_1"><img src="{{ prop_detail.property_image.url }}" class="img-fluid" alt="" /></div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-xl-6 col-lg-8 col-md-12">
+                                    <div class="product details">
+                                        <h5 class="product-title mt-2">Property name: <span class="col-teal">{{prop_detail.property_name}}</span></h5>
+                                        <h5 class="price mt-0">Price per month: <span class="col-teal">{{prop_detail.amount_per_month}}  Frw</span></h5>
+                                        <hr>
+                                        {% if prop_detail.available == True %}
+                                        <p class="mb-0"><strong>Property Availability: </strong> <span class="badge badge-info">Available</span></p>
+                                        {% else %}
+                                        <p class="mb-0"><strong>Property Availability: </strong> <span class="badge badge-success">Not Available</span></p>
+                                        {% endif %}
+
+                                        <hr>
+                                        <p class="product-description">{{prop_detail.detail}}</p>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="card mcard_4">
+                        <div class="body">
+                            <ul class="header-dropdown list-unstyled">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-menu"></i> </a>
+                                    <ul class="dropdown-menu slideUp">
+                                        <li><a href="javascript:void(0);">View</a></li>
+                                        <li><a href="javascript:void(0);">Report</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            {% for property_tenant in property_tenant %}
+                            <div class="img">
+                                <img src="{{ property_tenant.user_request.user_image.url }}" class="rounded-circle" alt="profile-image">
+                            </div>
+                            <div class="user">
+
+                                <h2 class="text-muted"><i class="zmdi zmdi-hc-fw"></i>Tenant: {{ property_tenant.user_request }}</h2>
+
+                                <h5 class="text-muted"><i class="zmdi zmdi-hc-fw"></i>User Status: {{ property_tenant.user_request.user_login }}</h5>
+                                <h5 class="text-muted"><i class="zmdi zmdi-hc-fw"></i>Tenant Number: {{ property_tenant.user_request.phone_number }}</h5>
+                                <h5 class="text-muted"><i class="zmdi zmdi-hc-fw"></i>Time In: {{ property_tenant.time_done }}</h5>
+
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="body">
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#description">Description</a></li>
+
+                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#about">About</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="body">
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="description">
+                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+                                </div>
+                                <div class="tab-pane" id="about">
+                                    <h6>Where does it come from?</h6>
+                                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="col-xl-12 col-lg-12 col-md-12">
+                    <div class="card">
+                        <div class="body">
+                            <div class="row clearfix">
+                                <div class="col-xl-6 col-lg-6 col-sm-12">
+                                    <div class="product details">
+                                        <h5 class="product-title mt-2">Property name: <span class="col-teal">{{prop_detail.property_name}}</span></h5>
+                                        <h5 class="price mt-0">Price per month: <span class="col-teal">{{prop_detail.amount_per_month}}  Frw</span></h5>
+                                        <hr>
+                                        {% if prop_detail.available == True %}
+                                        <p class="mb-0"><strong>Property Availability: </strong> <span class="badge badge-info">Available</span></p>
+                                        {% else %}
+                                        <p class="mb-0"><strong>Property Availability: </strong> <span class="badge badge-success">Not Available</span></p>
+                                        {% endif %}
+
+                                        <hr>
+                                        <p class="product-description">{{prop_detail.detail}}</p>
+
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-sm-12">
+                                    <div class="preview preview-pic tab-content">
+                                        <div class="tab-pane active" id="product_2"><img src="{{ prop_detail.property_image.url }}" class="img-fluid" alt="" /></div>
+
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="body">
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#description">Description</a></li>
+
+                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#about">About</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="body">
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="descriptionn">
+                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+                                </div>
+                                <div class="tab-pane" id="aboutt">
+                                    <h6>Where does it come from?</h6>
+                                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

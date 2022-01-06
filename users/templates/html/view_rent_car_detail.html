@@ -1,0 +1,130 @@
+{% extends 'dashboard-tenant/dashboard.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<section class="content">
+    <div class="">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>Dashboard</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'tenant' %}"><i class="zmdi zmdi-home"></i> Home</a></li>
+                        <li class="breadcrumb-item active">View car</li>
+                    </ul>
+                    <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+                </div>
+                <div class="col-lg-5 col-md-6 col-sm-12">
+                    <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i class="zmdi zmdi-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row clearfix">
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="card widget_2 big_icon traffic">
+                        <div class="body">
+                            <h6>OverAll Payment</h6>
+                            <h2>20 <small class="info">of 1Tb</small></h2>
+                            <small>2% higher than last month</small>
+                            <div class="progress">
+                                <div class="progress-bar l-amber" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="card widget_2 big_icon sales">
+                        <div class="body">
+                            <h6>Month Payment</h6>
+                            <h2>12% <small class="info">of 100</small></h2>
+                            <small>6% higher than last month</small>
+                            <div class="progress">
+                                <div class="progress-bar l-blue" role="progressbar" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100" style="width: 38%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="card widget_2 big_icon domains">
+                        <div class="body">
+                            <h6>Monthly Statistics</h6>
+                            <h2>8 <small class="info">of 10</small></h2>
+                            <small>All Payment Statistic</small>
+                            <div class="progress">
+                                <div class="progress-bar l-green" role="progressbar" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100" style="width: 89%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row clearfix">
+                {% for car_approved in car_approved %}
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="card mcard_4">
+                        <div class="body">
+                            <ul class="header-dropdown list-unstyled">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-menu"></i> </a>
+                                    <ul class="dropdown-menu slideUp">
+                                        <li><a href="javascript:void(0);">Edit</a></li>
+                                        <li><a href="javascript:void(0);">Report</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div class="img">
+                                <img src="{{ car_approved.user_request.user_image.url }}" class="rounded-circle" alt="profile-image">
+                            </div>
+                            <div class="user">
+                                <h5 class="mt-3 mb-1">{{ car_approved.user_request }}</h5>
+                                <small class="text-muted">{{ car_approved.user_request.user_login }}</small>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="card w_data_1">
+                       <div class="body">
+                            <div class="w_icon pink"><i class="zmdi zmdi-bug"></i></div>
+                            <h4 class="mt-3 mb-0">{{ car_approved.property_requested.amount_per_month }} Frw</h4>
+                            <span class="text-muted">Month Amount</span>
+                            <div class="w_description text-success">
+                                <i class="zmdi zmdi-trending-up"></i>
+                                <span>15.5%</span>
+                            </div>
+                       </div>
+                    </div>
+                    <div class="card w_data_1">
+                        <div class="body">
+                            <div class="w_icon cyan"><i class="zmdi zmdi-ticket-star"></i></div>
+                            <h4 class="mt-3 mb-1">20000</h4>
+                            <span class="text-muted">Amount Paid</span>
+                            <div class="w_description text-success">
+                                <i class="zmdi zmdi-trending-up"></i>
+                                <span>95.5%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                    <div class="card">
+                        <div class="body">
+                           <a href="blog-details.html"><img src="{{ car_approved.property_requested.property_image.url }}" alt="blog image" width="600" height="360"></a>
+                            <div class="input-group mt-3">
+                                <a href="" class="btn btn-info">Pay Rent</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}

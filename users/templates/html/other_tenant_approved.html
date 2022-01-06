@@ -1,0 +1,69 @@
+{% extends 'dashboard-tenant/dashboard.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="content file_manager">
+    <div class="body_scroll">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>View Other</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'tenant' %}"><i class="zmdi zmdi-home"></i> Home</a></li>
+                        <li class="breadcrumb-item"><a href="">View Other</a></li>
+                    </ul>
+                    <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row clearfix">
+                <div class="col-lg-12">
+                    <div class="card">
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="a2018">
+                                <div class="row clearfix">
+                                    {% for other_approved in other_approved %}
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="card">
+                                            <a href="" class="file">
+                                                <div class="hover">
+                                                    <button type="button" class="btn btn-icon btn-icon-mini btn-round btn-danger">
+                                                        <i class="zmdi zmdi-delete"></i>
+                                                    </button>
+                                                </div>
+                                                <div class="image">
+                                                    <a href=""><img src="{{ other_approved.property_requested.property_image.url }}" alt="img" class="img-fluid" ></a>
+                                                </div>
+                                                <div class="file-name">
+                                                    <p class="m-b-5 text-muted">{{ other_approved.property_requested.property_name }}</p>
+                                                    <p class="m-b-5 text-muted">Lessor Name: {{ other_approved.property_requested.owner_name }}</p>
+                                                    <small>Time In : <span class="date"><b>  {{ other_approved.property_requested.time_added}}</b></span></small>
+                                                </div>
+                                                <div class="action">
+                                                        <a href="{% url 'view_rent_other_detail' other_approved.id %}" class="btn btn-info waves-effect"><i class="zmdi zmdi-eye"></i></a>
+                                                        <a href="{% url 'view_rent_other_detail' other_approved.id %}" class="btn btn-primary waves-effect">View More</a>
+                                                </div>
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+
+
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

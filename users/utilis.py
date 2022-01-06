@@ -15,4 +15,3 @@ def send_sms(user_code, phone_number):
     )
 
     print(message.sid)
-

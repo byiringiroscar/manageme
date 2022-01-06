@@ -5,13 +5,15 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from rest_framework.authtoken.models import Token
 from django.conf import settings
+from django.utils import timezone
 
+now = timezone.now()
 user = settings.AUTH_USER_MODEL
 
 
 # Create your models here.
 class UserManager(BaseUserManager):
-    def create_user(self, phone_number, name, user_login, password=None):
+    def create_user(self, phone_number, name, user_login, user_image, password=None):
         """
         Creates and saves a User with the given phone and password.
         """
@@ -23,38 +25,15 @@ class UserManager(BaseUserManager):
         user = self.model(
             phone_number=phone_number,
             name=name,
-
         )
         user.set_password(password)
         user.user_login = user_login
+        user.user_image = user_image
         user.is_active = True
         user.save(using=self._db)
         return user
 
-    # def create_user(self, phone_number, name, user_login, password=None):
-    #     """
-    #     Creates and saves a User with the given phone and password.
-    #     """
-    #     if not phone_number:
-    #         raise ValueError('Users must have an phone address')
-    #     if not name:
-    #         raise ValueError('Users must have name')
-    #     if not user_login:
-    #         raise ValueError('user must have user type')
-    #
-    #     user = self.model(
-    #         phone_number=phone_number,
-    #         name=name,
-    #         user_login=user_login,
-    #         password=password,
-    #
-    #     )
-    #
-    #     user.is_active = True
-    #     user.save(using=self._db)
-    #     return user
-
-    def create_staffuser(self, phone_number, name, user_login, password):
+    def create_staffuser(self, phone_number, name, user_login, user_image, password):
         """
         Creates and saves a staff user with the given email and password.
         """
@@ -63,6 +42,7 @@ class UserManager(BaseUserManager):
             phone_number,
             name=name,
             user_login=user_login,
+            user_image=user_image,
             password=password,
         )
         user.staff = True
@@ -78,7 +58,6 @@ class UserManager(BaseUserManager):
             name,
             password=password,
             user_login=user_login
-
         )
 
         user.staff = True
@@ -95,6 +74,7 @@ class User(AbstractBaseUser):
     ]
     name = models.CharField(max_length=255, null=False)
     phone_number = PhoneNumberField(unique=True)
+    user_image = models.ImageField(upload_to='images/', default='profile.png')
     user_login = models.CharField(max_length=7, choices=user_type, default='lessor', blank=False, null=False)
 
     # username = None
@@ -144,9 +124,8 @@ def create_auth_token(sender, instance=None, created=False, **kwargs):
         Token.objects.create(user=instance)
 
 
-###### create user property
+# create user property
 
-#
 
 class Property_registration(models.Model):
     property_type_p = [
@@ -178,7 +157,7 @@ class Property_registration(models.Model):
 
     class Meta:
         verbose_name_plural = "Property_registration"
-        ordering = ['id']
+        ordering = ['-id']
 
 
 class Request_Property(models.Model):
@@ -188,13 +167,16 @@ class Request_Property(models.Model):
         ('approved', 'approved'),
         ('denied', 'denied'),
         ('canceled', 'canceled')]
-    user = models.ForeignKey(user, on_delete=models.CASCADE, related_name='requesting_users', null=False)
+    user_request = models.ForeignKey(user, on_delete=models.CASCADE, related_name='requesting_users', null=False)
     property_requested = models.ForeignKey(Property_registration, on_delete=models.CASCADE, related_name='property_req',
                                            null=False)
-    status_view = models.CharField(max_length=50, choices=status)
+    owner_name = models.ForeignKey(user, on_delete=models.CASCADE, related_name='owner_name_property', null=False)
+    status_view = models.CharField(max_length=50, choices=status, default='initial')
+    time_done = models.DateTimeField(default=now)
 
     def __str__(self):
-        return f'{self.user} {self.property_requested}'
+        return f'{self.user_request} {self.property_requested}'
 
     class Meta:
-        verbose_name_plural = "Request"
+        verbose_name_plural = "Request_Property"
+        ordering = ['-id']

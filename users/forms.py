@@ -16,7 +16,7 @@ class UserForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ['phone_number', 'name', 'user_login', 'password', 'password_2']
+        fields = ['phone_number', 'name', 'user_login', 'user_image', 'password', 'password_2']
 
     def clean_phone(self):
         '''
@@ -116,4 +116,5 @@ class Register_property_Form(forms.ModelForm):
 class RequestForm(forms.ModelForm):
     class Meta:
         model = Request_Property
-        fields = '__all__'
+        fields = ('status_view', )
+

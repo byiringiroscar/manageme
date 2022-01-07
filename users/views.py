@@ -8,6 +8,9 @@ from django.contrib.auth import authenticate, login, logout
 from codes.forms import CodeForm
 from users.models import User, Request_Property
 from .utilis import send_sms
+from .utilis import send_sms_request
+from .utilis import send_sms_approve
+from .utilis import send_sms_denied
 from users.forms import UserForm, TestForm
 from django.contrib.auth.forms import UserCreationForm
 from users.models import Property_registration
@@ -348,8 +351,14 @@ def search_property_tenant(request):
 # request area
 @login_required
 def request_pro(request, pk):
-    requesting_property = get_object_or_404(Property_registration, pk=pk)
     user = request.user
+    requesting_property = get_object_or_404(Property_registration, pk=pk)
+    phone_number_lessor = str(requesting_property.owner_name.phone_number)
+    phone_number_tenant = str(user.phone_number)
+
+    name = user.name
+    property_name = requesting_property.property_name
+
     form = RequestForm(request.POST or None)
     # if request.method == 'POST':
     instance = form.save(commit=False)
@@ -359,7 +368,7 @@ def request_pro(request, pk):
     instance.status_view = 'request'
     instance.time_done = now
     instance.save()
-
+    send_sms_request(phone_number_lessor, phone_number_tenant, name, property_name)
     context = {
         'form': form
     }
@@ -445,6 +454,11 @@ def approve_property(request, pk):
     instance.time_done = now
     instance.save()
     Property_registration.objects.filter(pk=prop_to).update(available=False)
+    phone_number_lessor = str(property_to_approve.property_requested.owner_name.phone_number)
+    phone_number_tenant = str(property_to_approve.user_request.phone_number)
+    name = property_to_approve.property_requested.owner_name.name
+    property_name = property_to_approve.property_requested.property_name
+    send_sms_approve(phone_number_lessor, phone_number_tenant, name, property_name)
     return redirect('dashboard')
 
 
@@ -456,6 +470,11 @@ def deny_property(request, pk):
     instance.status_view = 'denied'
     instance.time_done = now
     instance.save()
+    phone_number_lessor = str(property_to_approve.property_requested.owner_name.phone_number)
+    phone_number_tenant = str(property_to_approve.user_request.phone_number)
+    name = property_to_approve.property_requested.owner_name.name
+    property_name = property_to_approve.property_requested.property_name
+    send_sms_denied(phone_number_lessor, phone_number_tenant, name, property_name)
     return redirect('dashboard')
 
 

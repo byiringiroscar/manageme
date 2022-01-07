@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a14e5b6-1b6c-4de1-97f5-601a20d6c644" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ManageMe/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ManageMe/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard-owner/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard-owner/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/templates/html/lessor.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/html/lessor.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/templates/html/tenant.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/html/tenant.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/templates/html/view_car.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/html/view_car.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/templates/html/view_house.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/html/view_house.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

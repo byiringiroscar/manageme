@@ -18,11 +18,11 @@
 
             </div>
             <div class="row">
-                <div class="col-lg-6 col-md-12">
+                <div class="col-lg-6 col-md-6">
                     <div class="card">
-                        <div class="blogitem mb-5">
+                        <div class="blogitem">
                             <div class="blogitem-image">
-                                <a href="{% url 'view_car' %}"><img src="{% static 'dash/assets/images/image-gallery/car.png' %}" alt="blog image" ></a>
+                                <a href="{% url 'view_car' %}"><img src="{% static 'dash/assets/images/image-gallery/car.png' %}" alt="blog image" width="350" height="350"></a>
 
                             </div>
                             <div class="blogitem-content">
@@ -37,9 +37,18 @@
                                 <a href="{% url 'view_car' %}" class="btn btn-info">View More</a>
                             </div>
                         </div>
-                        <div class="blogitem mb-5">
+
+
+                    </div>
+
+
+
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="card">
+                        <div class="blogitem">
                             <div class="blogitem-image">
-                                <a href="{% url 'view_house' %}"><img src="{% static 'dash/assets/images/image-gallery/house.jpg' %}" alt="blog image"></a>
+                                <a href="{% url 'view_house' %}"><img src="{% static 'dash/assets/images/image-gallery/house.jpg' %}"  alt="blog image" height="350" width="350"></a>
 
                             </div>
                             <div class="blogitem-content">
@@ -54,14 +63,13 @@
                                 <a href="{% url 'view_house' %}" class="btn btn-info">View More</a>
                             </div>
                         </div>
-
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-12">
+                <div class="col-lg-6 col-md-6">
                     <div class="card">
-                        <div class="blogitem mb-5">
+                        <div class="blogitem">
                             <div class="blogitem-image">
-                                <a href="{% url 'view_others' %}"><img src="{% static 'dash/assets/images/image-gallery/other.jpg' %}" alt="blog image"></a>
+                                <a href="{% url 'view_others' %}"><img src="{% static 'dash/assets/images/image-gallery/other.jpg' %}" alt="blog image" height="350" width="350"></a>
 
                             </div>
                             <div class="blogitem-content">
@@ -76,9 +84,13 @@
                                 <a href="{% url 'view_others' %}" class="btn btn-info">View More</a>
                             </div>
                         </div>
-                        <div class="blogitem mb-5">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="card">
+                        <div class="blogitem">
                             <div class="blogitem-image">
-                                <a href="{% url 'view_land' %}"><img src="{% static 'dash/assets/images/image-gallery/lan.jpg' %}" alt="blog image"></a>
+                                <a href="{% url 'view_land' %}"><img src="{% static 'dash/assets/images/image-gallery/lan.jpg' %}" alt="blog image" height="350" width="350"></a>
 
                             </div>
                             <div class="blogitem-content">
@@ -94,7 +106,6 @@
                                 <a href="{% url 'view_land' %}" class="btn btn-info">View More</a>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

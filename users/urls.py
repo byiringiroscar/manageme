@@ -67,6 +67,15 @@ urlpatterns = [
     path('profile_tenant/', views.profile_tenant, name='profile_tenant'),
     # profile lessor
     path('profile_lessor/', views.profile_lessor, name='profile_lessor'),
+    path('home_tenant/', views.home_tenant, name='home_tenant'),
+    path('pay_rent_car/<int:id>/', views.pay_rent_car, name='pay_rent_car'),
+    path('pay_rent_house/', views.pay_rent_house, name='pay_rent_house'),
+    path('pay_rent_land/', views.pay_rent_land, name='pay_rent_land'),
+    path('pay_rent_other/', views.pay_rent_other, name='pay_rent_other'),
+
+    # payment
+    path('payment_landlord/<int:pk>/', views.payment_landlord, name='payment_landlord'),
+
 
 
 ]

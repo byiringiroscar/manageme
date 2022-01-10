@@ -22,9 +22,11 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('users.urls')),
+    path("djangoflutterwave/", include("djangoflutterwave.urls", namespace="djangoflutterwave")),
 
     # api part
-    path('api/', include('users.user_api.urls'))
+    path('api/', include('users.user_api.urls')),
+
 
 ]
 urlpatterns += staticfiles_urlpatterns()

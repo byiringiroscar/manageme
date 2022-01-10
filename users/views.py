@@ -19,6 +19,10 @@ from users.forms import Register_property_Form
 from django.db.models import Q
 from users.forms import RequestForm
 from django.utils import timezone
+from .process_payment import process_payment
+from .filters import OrderFilter
+from users.forms import Payment_report_Form
+import requests,math, random
 
 now = timezone.now()
 
@@ -58,7 +62,7 @@ def verify_view(request):
             print(user.user_login)
             # send code through intouch sms
 
-            send_sms(code_user, user.phone_number)
+            # send_sms(code_user, user.phone_number)
         if form.is_valid():
             num = form.cleaned_data.get('number')
             if str(code) == num:
@@ -82,7 +86,7 @@ def verify_tenant(request):
             print(code_user)
             # send code to phone through intouch sms
 
-            send_sms(code_user, user.phone_number)
+            # send_sms(code_user, user.phone_number)
         if form.is_valid():
             num = form.cleaned_data.get('number')
             if str(code) == num:
@@ -360,7 +364,6 @@ def request_pro(request, pk):
     property_name = requesting_property.property_name
 
     form = RequestForm(request.POST or None)
-    # if request.method == 'POST':
     instance = form.save(commit=False)
     instance.user_request = user
     instance.property_requested = requesting_property
@@ -482,8 +485,10 @@ def deny_property(request, pk):
 
 def view_rent_car_detail(request, id):
     user = request.user
+
     tenant_property_approved = Request_Property.objects.filter(user_request=user).filter(status_view='approved').filter(
         property_requested__property_type='car').filter(pk=id)
+
     context = {
         'car_approved': tenant_property_approved,
     }
@@ -535,6 +540,72 @@ def profile_lessor(request):
         'user': user
     }
     return render(request, 'html/profile_lessor.html', context)
+
+
+def payment_landlord(request, pk):
+    if request.method == 'POST':
+        requesting_property = get_object_or_404(Request_Property, pk=pk)
+        payment_reference = math.floor(1000000 + random.random()*9000000)
+        amount = str(request.GET['rent'])
+        print("amount", amount)
+        user = request.user
+        # phone_number = str(user.phone_number)
+        phone_number = '0786405263'
+        full_name = user.name
+        trans = process_payment(amount, phone_number, full_name)
+        print("status", trans)
+        print("status", trans)
+        redi = trans['meta']['authorization']['redirect']
+        form = Payment_report_Form(request.POST or None)
+        instance = form.save(commit=False)
+        instance.user_paid = user
+        instance.amount_paid = amount
+        instance.payment_reference = payment_reference
+        instance.payment_detail = requesting_property
+        instance.time_done = now
+        instance.save()
+
+        print('redirect', redi)
+        return redirect(redi)
+
+
+def home_tenant(request):
+    user = request.user
+    all_property = Property_registration.objects.filter(available=True)
+    myFilter = OrderFilter(request.GET, queryset=all_property)
+    all_prop = myFilter.qs
+    all_notification_deny_and_approve = Q(Q(status_view='approved') | Q(status_view='denied'))
+    request_property_all_deny_approve = Request_Property.objects.filter(all_notification_deny_and_approve).filter(
+        user_request=user).order_by('-id')
+    view_request_made = Request_Property.objects.filter(user_request=user).order_by('-id')
+    context = {
+        'property': all_property,
+        'myFilter': myFilter,
+        'all_prop': all_prop,
+        'request_property_all_deny_approve': request_property_all_deny_approve,
+        'request_made': view_request_made
+    }
+
+    return render(request, 'html/home_tenant.html', context)
+
+
+def pay_rent_car(request, id):
+    user = request.user
+
+    tenant_property_approved = Request_Property.objects.filter(user_request=user).filter(status_view='approved').filter(
+        property_requested__property_type='car').filter(pk=id)
+
+    context = {
+        'car_approved': tenant_property_approved,
+    }
+
+    return render(request, 'html/pay_rent_car.html', context)
+def pay_rent_house(request):
+    return render(request, 'html/pay_rent_house.html')
+def pay_rent_land(request):
+    return render(request, 'html/pay_rent_land.html')
+def pay_rent_other(request):
+    return render(request, 'html/pay_rent_other.html')
 
 
 def test_view(req):

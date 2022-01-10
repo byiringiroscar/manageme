@@ -96,60 +96,7 @@
                                 </div>
                             </a>
                         </li>
-                        <li>
-                            <a href="javascript:void(0);">
-                                <div class="icon-circle bg-amber"><i class="zmdi zmdi-shopping-cart"></i></div>
-                                <div class="menu-info">
-                                    <h4>4 Sales made</h4>
-                                    <p><i class="zmdi zmdi-time"></i> 22 mins ago </p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);">
-                                <div class="icon-circle bg-red"><i class="zmdi zmdi-delete"></i></div>
-                                <div class="menu-info">
-                                    <h4><b>Nancy Doe</b> Deleted account</h4>
-                                    <p><i class="zmdi zmdi-time"></i> 3 hours ago </p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);">
-                                <div class="icon-circle bg-green"><i class="zmdi zmdi-edit"></i></div>
-                                <div class="menu-info">
-                                    <h4><b>Nancy</b> Changed name</h4>
-                                    <p><i class="zmdi zmdi-time"></i> 2 hours ago </p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);">
-                                <div class="icon-circle bg-grey"><i class="zmdi zmdi-comment-text"></i></div>
-                                <div class="menu-info">
-                                    <h4><b>John</b> Commented your post</h4>
-                                    <p><i class="zmdi zmdi-time"></i> 4 hours ago </p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);">
-                                <div class="icon-circle bg-purple"><i class="zmdi zmdi-refresh"></i></div>
-                                <div class="menu-info">
-                                    <h4><b>John</b> Updated status</h4>
-                                    <p><i class="zmdi zmdi-time"></i> 3 hours ago </p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);">
-                                <div class="icon-circle bg-light-blue"><i class="zmdi zmdi-settings"></i></div>
-                                <div class="menu-info">
-                                    <h4>Settings Updated</h4>
-                                    <p><i class="zmdi zmdi-time"></i> Yesterday </p>
-                                </div>
-                            </a>
-                        </li>
+
                     </ul>
                 </li>
                 <li class="footer"> <a href="javascript:void(0);">View All Notifications</a> </li>
@@ -174,67 +121,13 @@
                                 <ul class="list-unstyled team-info">
                                     <li class="m-r-15"><small>Team</small></li>
                                     <li>
-                                        <img src="assets/images/xs/avatar2.jpg" alt="Avatar">
+                                        <img src="{% static 'dash/assets/images/xs/avatar2.jpg' %}" alt="Avatar">
                                     </li>
-                                    <li>
-                                        <img src="assets/images/xs/avatar3.jpg" alt="Avatar">
-                                    </li>
-                                    <li>
-                                        <img src="assets/images/xs/avatar4.jpg" alt="Avatar">
-                                    </li>
+
                                 </ul>
                             </div>
                         </li>
-                        <li>
-                            <div class="progress-container">
-                                <span class="progress-badge">iOS Game Dev</span>
-                                <div class="progress">
-                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%;">
-                                        <span class="progress-value">45%</span>
-                                    </div>
-                                </div>
-                                <ul class="list-unstyled team-info">
-                                    <li class="m-r-15"><small>Team</small></li>
-                                    <li>
-                                        <img src="assets/images/xs/avatar10.jpg" alt="Avatar">
-                                    </li>
-                                    <li>
-                                        <img src="assets/images/xs/avatar9.jpg" alt="Avatar">
-                                    </li>
-                                    <li>
-                                        <img src="assets/images/xs/avatar8.jpg" alt="Avatar">
-                                    </li>
-                                    <li>
-                                        <img src="assets/images/xs/avatar7.jpg" alt="Avatar">
-                                    </li>
-                                    <li>
-                                        <img src="assets/images/xs/avatar6.jpg" alt="Avatar">
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="progress-container progress-warning">
-                                <span class="progress-badge">Home Development</span>
-                                <div class="progress">
-                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="29" aria-valuemin="0" aria-valuemax="100" style="width: 29%;">
-                                        <span class="progress-value">29%</span>
-                                    </div>
-                                </div>
-                                <ul class="list-unstyled team-info">
-                                    <li class="m-r-15"><small>Team</small></li>
-                                    <li>
-                                        <img src="assets/images/xs/avatar5.jpg" alt="Avatar">
-                                    </li>
-                                    <li>
-                                        <img src="assets/images/xs/avatar2.jpg" alt="Avatar">
-                                    </li>
-                                    <li>
-                                        <img src="assets/images/xs/avatar7.jpg" alt="Avatar">
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
+
                     </ul>
                 </li>
             </ul>
@@ -265,7 +158,8 @@
                 </div>
             </li>
             <li><a href="{% url 'tenant' %}"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a></li>
-            <li  class=""><a href="{% url 'home_tenant' %}"><i class="zmdi zmdi-home"></i><span>Search Property</span></a></li>
+
+            <li  class=""><a href="{% url 'home_tenant' %}"><i class="zmdi zmdi-hc-fw"></i><span>Search Property</span></a></li>
 
             <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-folder"></i><span>Payment Report</span></a>
 
@@ -441,34 +335,28 @@
 
 <section class="content">
     <div class="body_scroll">
-        <div class="block-header">
+        <div class="container">
             <div class="row">
                 <div class="col-lg-7 col-md-6 col-sm-12">
-                    <h2>Search Results</h2>
-                    <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> ManageMe</a></li>
-                        <li class="breadcrumb-item active">Pages</li>
-                        <li class="breadcrumb-item active">Search Results</li>
-                    </ul>
+
+
                     <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
                 </div>
-                <div class="col-lg-5 col-md-6 col-sm-12">
-                    <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i class="zmdi zmdi-arrow-right"></i></button>
-                </div>
+
             </div>
         </div>
         <div class="container-fluid">
+
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
                         <div class="body">
-                            <form action="{% url 'search_property_tenant' %}" method="POST">
+                            <form  method="GET">
                                 {% csrf_token %}
+                                {{ myFilter.form}}
+                                <button class="btn btn-primary" type="submit">Search</button>
                                 <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="zmdi zmdi-search"></i></span>
-                                </div>
-                                <input type="text" class="form-control" name="q" placeholder="Search...">
+
 
                             </div>
                             </form>
@@ -481,25 +369,25 @@
 
                                         <div class="container-fluid">
                                             <div class="row clearfix">
-                                                {% for search in search_prop %}
-                                                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                                                {% for search in all_prop %}
+                                                <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12">
                                                         <div class="card">
-                        <div class="body product_item">
-                            <span class="label onsale">Renting</span>
-                            <img src="{{search.property_image.url}}" alt="Product" class="" width="350" height="350"/>
-                            <div class="product_details">
-                                <a href="ec-product-detail.html">{{search.property_name}}</a>
-                                <ul class="product_price list-unstyled">
-                                    <li class="old_price">{{search.amount_per_month}}</li>
-                                    <li class="new_price">{{search.amount_per_month}}</li>
-                                </ul>
-                            </div>
-                            <div class="action">
-                                <a href="{% url 'view_property_detail_tenant' search.id %}" class="btn btn-info waves-effect"><i class="zmdi zmdi-eye"></i></a>
-                                <a href="{% url 'view_property_detail_tenant' search.id %}" class="btn btn-primary waves-effect">View More</a>
-                            </div>
-                        </div>
-                    </div>
+                                                            <div class="body product_item">
+                                                                <span class="label onsale">Renting</span>
+                                                                <img src="{{search.property_image.url}}" alt="Product" class="" width="450" height="300"/>
+                                                                <div class="product_details">
+                                                                    <a href="ec-product-detail.html">Property Name: {{search.property_name}}</a><br>
+                                                                    <a href="ec-product-detail.html">Property Type: {{search.property_type}}</a>
+                                                                    <ul class="product_price list-unstyled">
+                                                                        <li class="new_price">{{search.amount_per_month}} Frw</li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="action">
+                                                                    <a href="{% url 'view_property_detail_tenant' search.id %}" class="btn btn-info waves-effect"><i class="zmdi zmdi-eye"></i></a>
+                                                                    <a href="{% url 'view_property_detail_tenant' search.id %}" class="btn btn-primary waves-effect">View More</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                 </div>
                                                 {% endfor %}
                                             </div>
@@ -514,9 +402,12 @@
 
             </div>
         </div>
+
     </div>
 </section>
 <!-- Jquery Core Js -->
+<script src="{% static 'dash/assets/bundles/libscripts.bundle.js' %}"></script> <!-- Lib Scripts Plugin Js -->
+<script src="{% static 'dash/assets/bundles/vendorscripts.bundle.js' %}"></script> <!-- Lib Scripts Plugin Js -->
 
 
 </body>

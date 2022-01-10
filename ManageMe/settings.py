@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-fpt%t8i#br7(_ioxsn#rn)2dj&co_1hc*lo^f1r+76_o!_!g-u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -42,9 +42,17 @@ INSTALLED_APPS = [
     'codes',
     'rest_framework',
     'rest_framework.authtoken',
-    'property'
+    'property',
+    'djangoflutterwave',
+    'django_filters',
+
 
 ]
+FLW_PRODUCTION_PUBLIC_KEY = "FLWPUBK_TEST-3031ba85396a97a094f82de5dac5127c-X"
+FLW_PRODUCTION_SECRET_KEY = "FLWSECK_TEST-0c58636b56ee1da54fe03d358caa75cc-X"
+FLW_SANDBOX_PUBLIC_KEY = "your key"
+FLW_SANDBOX_SECRET_KEY = "your key"
+FLW_SANDBOX = True
 AUTH_USER_MODEL = "users.User"
 
 MIDDLEWARE = [

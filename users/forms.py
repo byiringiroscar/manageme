@@ -3,7 +3,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
 
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
-from users.models import Property_registration, Request_Property
+from users.models import Property_registration, Request_Property, Payment_report
 
 from property.models import Test
 
@@ -116,5 +116,10 @@ class Register_property_Form(forms.ModelForm):
 class RequestForm(forms.ModelForm):
     class Meta:
         model = Request_Property
-        fields = ('status_view', )
+        fields = ('status_view',)
 
+
+class Payment_report_Form(forms.ModelForm):
+    class Meta:
+        model = Payment_report
+        fields = '__all__'

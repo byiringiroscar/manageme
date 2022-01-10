@@ -449,7 +449,7 @@
 
 <section class="content">
    <div class="container " style="margin-top: 30px;">
-    <form action="" method="post" enctype="multipart/form-data">
+    <form action="{% url 'post_property' %}"  method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <fieldset class="form-group">
             <legend class="border-bottom mb-4" style="color: red;">Register Property</legend>
@@ -458,7 +458,8 @@
 
 
 
-    <input type="submit" class="btn btn-info" value="Register">
+
+      <button class="btn btn-info" >Register</button>
 
         <div class="container">
             {% if message %}
@@ -472,7 +473,10 @@
 </section>
 <!-- Jquery Core Js -->
 
+<script src="{% static 'dash/assets/bundles/libscripts.bundle.js' %}" defer></script> <!-- Lib Scripts Plugin Js -->
+<script src="{% static 'dash/assets/bundles/vendorscripts.bundle.js' %}" defer></script> <!-- Lib Scripts Plugin Js -->
 
+<script src="{% static 'dash/assets/bundles/mainscripts.bundle.js' %}" defer></script>
 </body>
 
 

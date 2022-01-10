@@ -7,6 +7,7 @@ from rest_framework.authtoken.models import Token
 from django.conf import settings
 from django.utils import timezone
 
+
 now = timezone.now()
 user = settings.AUTH_USER_MODEL
 
@@ -145,7 +146,7 @@ class Property_registration(models.Model):
     location = models.CharField(max_length=200, choices=location_name, default='kigali')
     property_type = models.CharField(max_length=200, choices=property_type_p)
     amount_per_month = models.IntegerField(default=10000)
-    detail = models.CharField(max_length=250, default='')
+    detail = models.TextField(max_length=250, default='')
     property_image = models.ImageField(blank=True, null=True, upload_to='images')
     available = models.BooleanField(default=True)
 
@@ -179,4 +180,19 @@ class Request_Property(models.Model):
 
     class Meta:
         verbose_name_plural = "Request_Property"
+        ordering = ['-id']
+
+
+class Payment_report(models.Model):
+    user_paid = models.ForeignKey(user, on_delete=models.CASCADE, related_name='user_paid', null=False)
+    amount_paid = models.IntegerField()
+    payment_reference = models.CharField(max_length=250)
+    payment_detail = models.ForeignKey(Request_Property, on_delete=models.CASCADE, related_name="payment_detail")
+    time_done = models.DateTimeField(default=now)
+
+    def __str__(self):
+        return f'{self.payment_detail} -- {self.amount_paid}'
+
+    class Meta:
+        verbose_name_plural = "Payment_Report"
         ordering = ['-id']

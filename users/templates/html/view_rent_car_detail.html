@@ -115,7 +115,8 @@
                         <div class="body">
                            <a href="blog-details.html"><img src="{{ car_approved.property_requested.property_image.url }}" alt="blog image" width="600" height="360"></a>
                             <div class="input-group mt-3">
-                                <a href="" class="btn btn-info">Pay Rent</a>
+
+                                    <a href="{% url 'pay_rent_car' car_approved.id %}"><button class="btn btn-info">PAY RENT</button></a>
                             </div>
                         </div>
                     </div>

@@ -2,7 +2,44 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a14e5b6-1b6c-4de1-97f5-601a20d6c644" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/media/images/car1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/images/car1_31aPNmx.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/images/car1_7SPTd6H.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/images/car1_XmuW6y6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/images/car1_oCS3A5B.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/images/car1_vOoWkST.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/images/dsc02773_DwFsygx.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/images/jim.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/users/filters.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/users/migrations/0009_auto_20220109_1801.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/users/migrations/0010_auto_20220110_1557.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/users/process_payment.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/users/templates/html/home_tenant.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/users/templates/html/pay_rent_car.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/users/templates/html/pay_rent_house.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/users/templates/html/pay_rent_land.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/users/templates/html/pay_rent_other.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ManageMe/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ManageMe/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ManageMe/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ManageMe/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/dash/assets/bundles/mainscripts.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/dash/assets/bundles/mainscripts.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/dash/assets/bundles/mainscripts.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/dash/assets/bundles/mainscripts.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dashboard-owner/register_property.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard-owner/register_property.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dashboard-tenant/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard-tenant/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/templates/html/lessor.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/html/lessor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/templates/html/search_property_tenant.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/html/search_property_tenant.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/templates/html/view_car.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/html/view_car.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/templates/html/view_house.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/html/view_house.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/templates/html/view_land.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/html/view_land.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/templates/html/view_other.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/html/view_other.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/templates/html/view_property_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/html/view_property_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/templates/html/view_rent_car_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/html/view_rent_car_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,15 +203,16 @@
     </state>
     <state width="1345" height="179" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1366.728@1920.0.1366.728" timestamp="1641505022901" />
     <state width="1515" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1641544197021" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1641540803099">
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1641670701940">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824/1920.0.1366.728@0.0.1536.824" timestamp="1641670701940" />
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1641540803099" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1641464155292">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1641815782914">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="431" y="145" width="756" height="680" key="search.everywhere.popup/0.0.1536.824/1920.0.1366.728@0.0.1536.824" timestamp="1640848055218" />
     <state x="2303" y="128" width="672" height="600" key="search.everywhere.popup/0.0.1536.824/1920.0.1366.728@1920.0.1366.728" timestamp="1641199855232" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1641464155292" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1641815782914" />
   </component>
 </project>

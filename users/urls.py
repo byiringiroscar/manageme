@@ -72,6 +72,7 @@ urlpatterns = [
     path('pay_rent_house/', views.pay_rent_house, name='pay_rent_house'),
     path('pay_rent_land/', views.pay_rent_land, name='pay_rent_land'),
     path('pay_rent_other/', views.pay_rent_other, name='pay_rent_other'),
+    path('callback', views.payment_response, name='pay-response'),
 
     # payment
     path('payment_landlord/<int:id>/', views.payment_landlord, name='payment_landlord'),

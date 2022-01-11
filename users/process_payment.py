@@ -20,6 +20,8 @@ def process_payment(amount, phone_number, full_name):
     data = {}
     if response['status']:
         data = response
+
+
     else:
         data['status'] = 'failed'
     return data

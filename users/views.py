@@ -629,7 +629,8 @@ def pay_rent_car(request, id):
         form = Payment_report_Form(request.POST or None)
         if form.is_valid():
             user = request.user
-            phone_number = user.phone_number
+            # phone_number = user.phone_number
+            phone_number = '0789952243'
             amount = str(request.POST['amount_paid'])
             full_name = str(user.name)
             request_property = get_object_or_404(Request_Property, pk=id)
@@ -645,6 +646,9 @@ def pay_rent_car(request, id):
             trans = process_payment(amount, phone_number, full_name)
             print("status", trans)
             redi = trans['meta']['authorization']['redirect']
+            redirect_home = trans['meta']['authorization']['mode']
+            print("redirect", redi)
+            print("home redirect", redirect_home)
 
             return redirect(redi)
 
@@ -681,3 +685,7 @@ def test_view(req):
     else:
         form = TestForm()
     return render(req, 'html/test.html', {'form': form})
+
+def payment_response(request):
+    if request.method == 'POST':
+        print(request.body)

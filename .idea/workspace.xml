@@ -2,18 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a14e5b6-1b6c-4de1-97f5-601a20d6c644" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/media/images/profile.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard-owner/register_property.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard-owner/register_property.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dashboard-owner/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard-owner/dashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/dashboard-tenant/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard-tenant/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/process_payment.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/process_payment.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/templates/html/home_tenant.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/html/home_tenant.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/templates/html/pay_rent_car.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/html/pay_rent_car.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

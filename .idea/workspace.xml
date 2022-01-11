@@ -2,7 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a14e5b6-1b6c-4de1-97f5-601a20d6c644" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/staticfiles/dash/assets/bundles/mainscripts.bundle.618eb70bd6fc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dash/assets/bundles/mainscripts.bundle.618eb70bd6fc.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dash/assets/images/icomann.d83e9988e87a.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dash/assets/images/icomann.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/dash/assets/images/profile_av.202c9c0df7b7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/djangoflutterwave/js/payment.ed5df8341afc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/djangoflutterwave/js/payment.ed5df8341afc.js.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/djangoflutterwave/js/payment.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/djangoflutterwave/js/payment.js.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/dash/assets/bundles/mainscripts.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/dash/assets/bundles/mainscripts.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/dash/assets/bundles/mainscripts.bundle.js.gz" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/dash/assets/bundles/mainscripts.bundle.js.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/staticfiles.json" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/staticfiles.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/dashboard-owner/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard-owner/dashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/dashboard-tenant/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard-tenant/dashboard.html" afterDir="false" />
     </list>

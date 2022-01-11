@@ -22,7 +22,8 @@ from django.utils import timezone
 from .process_payment import process_payment
 from .filters import OrderFilter
 from users.forms import Payment_report_Form
-import requests,math, random
+import requests, math, random
+from .models import Payment_report
 
 now = timezone.now()
 
@@ -92,7 +93,7 @@ def verify_tenant(request):
             if str(code) == num:
                 code.save()
                 login(request, user)
-                return redirect('tenant')
+                return redirect('home_tenant')
             else:
 
                 return redirect('sign_in')
@@ -542,31 +543,63 @@ def profile_lessor(request):
     return render(request, 'html/profile_lessor.html', context)
 
 
-def payment_landlord(request, pk):
-    if request.method == 'POST':
-        requesting_property = get_object_or_404(Request_Property, pk=pk)
-        payment_reference = math.floor(1000000 + random.random()*9000000)
-        amount = str(request.GET['rent'])
-        print("amount", amount)
-        user = request.user
-        # phone_number = str(user.phone_number)
-        phone_number = '0786405263'
-        full_name = user.name
-        trans = process_payment(amount, phone_number, full_name)
-        print("status", trans)
-        print("status", trans)
-        redi = trans['meta']['authorization']['redirect']
-        form = Payment_report_Form(request.POST or None)
-        instance = form.save(commit=False)
-        instance.user_paid = user
-        instance.amount_paid = amount
-        instance.payment_reference = payment_reference
-        instance.payment_detail = requesting_property
-        instance.time_done = now
-        instance.save()
+def payment_landlordd(request, id):
+    payment_reference = str(math.floor(1000000 + random.random() * 9000000))
+    request_property = get_object_or_404(Request_Property, pk=id)
+    form = Payment_report_Form(request.POST or None, request.FILES)
+    instance = form.save(commit=False)
+    amount = 100
+    print("amount", amount)
+    user = request.user
+    # phone_number = str(user.phone_number)
+    phone_number = '0780538064'
+    full_name = user.name
+    # trans = process_payment(amount, phone_number, full_name)
+    # print("status", trans)
+    # redi = trans['meta']['authorization']['redirect']
+    # a = redirect(redi)
 
-        print('redirect', redi)
-        return redirect(redi)
+    instance.user_paid = user
+    print('user', user)
+    instance.amount_paid = amount
+    instance.payment_reference = payment_reference
+    instance.payment_detail = request_property
+    instance.time_done = now
+    instance.save()
+    return redirect('tenant')
+    # if form.is_valid():
+
+
+def payment_landlord(request, id):
+    user = request.user
+    # amount = request.POST['rent']
+    # print("amount_form_input", amount)
+    request_property = get_object_or_404(Request_Property, pk=id)
+    payment_reference = str(math.floor(1000000 + random.random() * 9000000))
+    form = Payment_report_Form(request.POST or None)
+    instance = form.save(commit=False)
+    instance.user_paid = user
+    user_p = instance.user_paid = user
+
+    instance.amount_paid = 200
+    user_amount = instance.amount_paid = 100
+    instance.payment_reference = payment_reference
+    user_ref = instance.payment_reference = payment_reference
+    instance.payment_detail = request_property
+    user_pay_detail = instance.payment_detail = request_property
+    instance.time_done = now
+    user_date = instance.time_done = now
+    print("user", user_p)
+    print("amount", user_amount)
+    print("user_ref", user_ref)
+    print("user_pay_detail", user_pay_detail)
+    print("user_date", user_date)
+    instance.save()
+    request_detail = get_object_or_404(Request_Property, id=id)
+    new_amount = Payment_report.objects.get(payment_detail=request_detail)
+    amount_to = new_amount.amount_paid
+
+    return redirect('tenant')
 
 
 def home_tenant(request):
@@ -591,19 +624,49 @@ def home_tenant(request):
 
 def pay_rent_car(request, id):
     user = request.user
+    form = Payment_report_Form()
+    if request.method == 'POST':
+        form = Payment_report_Form(request.POST or None)
+        if form.is_valid():
+            user = request.user
+            phone_number = user.phone_number
+            amount = str(request.POST['amount_paid'])
+            full_name = str(user.name)
+            request_property = get_object_or_404(Request_Property, pk=id)
+            payment_reference = str(math.floor(1000000 + random.random() * 9000000))
+            # amount = request.GET('div_id_amount_paid')
+            form.instance.user_paid = user
+            form.instance.payment_reference = payment_reference
+            form.instance.payment_detail = request_property
+            form.instance.time_done = now
+
+            form.save()
+            process_payment(amount, phone_number, full_name)
+            trans = process_payment(amount, phone_number, full_name)
+            print("status", trans)
+            redi = trans['meta']['authorization']['redirect']
+
+            return redirect(redi)
 
     tenant_property_approved = Request_Property.objects.filter(user_request=user).filter(status_view='approved').filter(
         property_requested__property_type='car').filter(pk=id)
 
     context = {
         'car_approved': tenant_property_approved,
+        'form': form
     }
 
     return render(request, 'html/pay_rent_car.html', context)
+
+
 def pay_rent_house(request):
     return render(request, 'html/pay_rent_house.html')
+
+
 def pay_rent_land(request):
     return render(request, 'html/pay_rent_land.html')
+
+
 def pay_rent_other(request):
     return render(request, 'html/pay_rent_other.html')
 

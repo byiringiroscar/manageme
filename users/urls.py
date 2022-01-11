@@ -74,7 +74,7 @@ urlpatterns = [
     path('pay_rent_other/', views.pay_rent_other, name='pay_rent_other'),
 
     # payment
-    path('payment_landlord/<int:pk>/', views.payment_landlord, name='payment_landlord'),
+    path('payment_landlord/<int:id>/', views.payment_landlord, name='payment_landlord'),
 
 
 

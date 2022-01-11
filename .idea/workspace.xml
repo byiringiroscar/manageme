@@ -2,8 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a14e5b6-1b6c-4de1-97f5-601a20d6c644" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/media/images/profile.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dashboard-owner/register_property.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard-owner/register_property.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dashboard-tenant/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard-tenant/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/process_payment.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/process_payment.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/templates/html/home_tenant.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/html/home_tenant.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/templates/html/pay_rent_car.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/html/pay_rent_car.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,10 +177,10 @@
     </state>
     <state width="1345" height="179" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1366.728@1920.0.1366.728" timestamp="1641505022901" />
     <state width="1515" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1641544197021" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1641670701940">
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1641841488946">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824/1920.0.1366.728@0.0.1536.824" timestamp="1641670701940" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824/1920.0.1366.728@0.0.1536.824" timestamp="1641841488946" />
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1641540803099" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1641827653897">
       <screen x="0" y="0" width="1536" height="824" />

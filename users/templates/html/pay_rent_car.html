@@ -2,7 +2,7 @@
 {% load static %}
 <html class="no-js " lang="en">
 
-
+{% load crispy_forms_tags %}
 
 <head>
 <meta charset="utf-8">
@@ -21,12 +21,7 @@
 <body class="theme-blush">
 
 <!-- Page Loader -->
-<div class="page-loader-wrapper">
-    <div class="loader">
-        <div class="m-t-30"><img class="zmdi-hc-spin" src="{% static 'dash/assets/images/loader.svg' %}" width="48" height="48" alt="Aero"></div>
-        <p>Please wait...</p>
-    </div>
-</div>
+
 
 <!-- Overlay For Sidebars -->
 <div class="overlay"></div>
@@ -435,12 +430,14 @@
                     <div class="card">
                         <div class="body">
                            <a href="blog-details.html"><img src="{{ car_approved.property_requested.property_image.url }}" alt="blog image" width="600" height="360"></a>
-                            <form action="{% url 'payment_landlord'}" method="POST">
+                            <form action="{% url 'pay_rent_car' car_approved.id %}" method="POST">
+                                {% csrf_token %}
                                 <div class="input-group mt-3">
-                                    <input type = "text" class ="form-control col-lg-6 mt-2 mb-1" placeholder="Rent Amount" name="rent" >
+                                   {{ form.amount_paid |as_crispy_field }}
 
-                                    <a href="{% url 'payment_landlord' car_approved.id %}"><button class="btn btn-info">PAY RENT</button></a>
+                                    <a href="{% url 'pay_rent_car' car_approved.id %}"><button class="btn btn-info mt-4">Pay Rent</button></a>
                             </div>
+
                             </form>
                         </div>
                     </div>
@@ -452,8 +449,7 @@
     </div>
 </section>
 <!-- Jquery Core Js -->
-<script src="{% static 'dash/assets/bundles/libscripts.bundle.js' %}"></script> <!-- Lib Scripts Plugin Js -->
-<script src="{% static 'dash/assets/bundles/vendorscripts.bundle.js' %}"></script> <!-- Lib Scripts Plugin Js -->
+
 
 </body>
 

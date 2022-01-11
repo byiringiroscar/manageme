@@ -122,4 +122,4 @@ class RequestForm(forms.ModelForm):
 class Payment_report_Form(forms.ModelForm):
     class Meta:
         model = Payment_report
-        fields = '__all__'
+        fields = ('amount_paid',)

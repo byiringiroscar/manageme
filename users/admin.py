@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
-from users.models import Property_registration, Request_Property
+from users.models import Property_registration, Request_Property, Payment_report
 
 from .forms import UserAdminCreationForm, UserAdminChangeForm
 
@@ -43,3 +43,4 @@ class UserAdmin(BaseUserAdmin):
 
 admin.site.register(User, UserAdmin)
 admin.site.register(Property_registration)
+admin.site.register(Payment_report)

@@ -3,10 +3,10 @@ from decouple import config
 
 
 def process_payment(amount, phone_number, full_name):
-    hed = {'Authorization': 'FLWSECK-63f2281ad0569b4ea25935c0a172dcf4-X'}
+    hed = {'Authorization': 'FLWSECK_TEST-0c58636b56ee1da54fe03d358caa75cc-X'}
     data = {
         # "tx_ref": str(math.floor(1000000 + random.random() * 9000000)),
-        "tx_ref": "MC-158523s09v5050e8",
+        "tx_ref": "MC-158523s09v5050e88",
         "amount": str(amount),
         "currency": "RWF",
         "network": "MTN",
@@ -18,7 +18,7 @@ def process_payment(amount, phone_number, full_name):
     response = requests.post(url, json=data, headers=hed)
     response = response.json()
     data = {}
-    if (response['status']):
+    if response['status']:
         data = response
     else:
         data['status'] = 'failed'

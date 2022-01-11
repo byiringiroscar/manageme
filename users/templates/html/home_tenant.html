@@ -2,7 +2,6 @@
 {% load static %}
 <html class="no-js " lang="en">
 
-
 {% load crispy_forms_tags %}
 <head>
 <meta charset="utf-8">
@@ -157,9 +156,9 @@
                     </div>
                 </div>
             </li>
-            <li><a href="{% url 'tenant' %}"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a></li>
+            <li  class=""><a href="{% url 'home_tenant' %}"><i class="zmdi zmdi-hc-fw"></i><span>Home</span></a></li>
 
-            <li  class=""><a href="{% url 'home_tenant' %}"><i class="zmdi zmdi-hc-fw"></i><span>Search Property</span></a></li>
+            <li><a href="{% url 'tenant' %}"><i class="zmdi zmdi-home"></i><span>My Property</span></a></li>
 
             <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-folder"></i><span>Payment Report</span></a>
 
@@ -357,8 +356,10 @@
                                 <button class="btn btn-primary" type="submit">Search</button>
                                 <div class="input-group">
 
+                                </div>
 
-                            </div>
+
+
                             </form>
                         </div>
                     </div>

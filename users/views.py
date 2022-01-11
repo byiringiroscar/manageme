@@ -693,4 +693,4 @@ def test_view(req):
 @api_view(['POST'])
 def payment_response(request):
     if request.method == 'POST':
-        print(request.body)
+        print(" requets body",request.body)

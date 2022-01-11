@@ -5,10 +5,13 @@ from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
+from rest_framework.decorators import api_view
+
 from codes.forms import CodeForm
 from users.models import User, Request_Property
 from .utilis import send_sms
 from .utilis import send_sms_request
+from rest_framework.views import APIView
 from .utilis import send_sms_approve
 from .utilis import send_sms_denied
 from users.forms import UserForm, TestForm
@@ -63,7 +66,7 @@ def verify_view(request):
             print(user.user_login)
             # send code through intouch sms
 
-            send_sms(code_user, user.phone_number)
+            # send_sms(code_user, user.phone_number)
         if form.is_valid():
             num = form.cleaned_data.get('number')
             if str(code) == num:
@@ -87,7 +90,7 @@ def verify_tenant(request):
             print(code_user)
             # send code to phone through intouch sms
 
-            send_sms(code_user, user.phone_number)
+            # send_sms(code_user, user.phone_number)
         if form.is_valid():
             num = form.cleaned_data.get('number')
             if str(code) == num:
@@ -686,6 +689,8 @@ def test_view(req):
         form = TestForm()
     return render(req, 'html/test.html', {'form': form})
 
+
+@api_view(['POST'])
 def payment_response(request):
     if request.method == 'POST':
         print(request.body)

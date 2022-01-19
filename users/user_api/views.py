@@ -1,11 +1,12 @@
 from rest_framework.response import Response
 from rest_framework.decorators import APIView, api_view
-from users.user_api.serializers import RegisterUserSerializer
+from users.user_api.serializers import RegisterUserSerializer, ClientMessageSerializer
 from rest_framework import status
 from django.contrib.auth import get_user_model
 from rest_framework import views, response, permissions, authentication, filters, generics, status
 from rest_framework.authtoken.models import Token
 from users.user_api.serializers import UserSerializer
+from rest_framework import status
 
 User = get_user_model()
 
@@ -39,4 +40,22 @@ def register_user_view(request):
         else:
             data = serializer.errors
         return Response(data)
+
+@api_view(['POST', ])
+def send_message(request):
+    if request.method == 'POST':
+        serializer = ClientMessageSerializer(data=request.data)
+        data = {}
+        if serializer.is_valid():
+            user = serializer.save()
+            data['respnse'] = "Message sent succesfully"
+            data['email'] = user.email
+            data['subject'] = user.subject
+            return Response(data, status=status.HTTP_201_CREATED)
+        else:
+            data = serializer.errors
+            return Response(data, status=status.HTTP_400_BAD_REQUEST)
+
+
+
 

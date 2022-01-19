@@ -7,7 +7,6 @@ from rest_framework.authtoken.models import Token
 from django.conf import settings
 from django.utils import timezone
 
-
 now = timezone.now()
 user = settings.AUTH_USER_MODEL
 
@@ -38,6 +37,10 @@ class UserManager(BaseUserManager):
         """
         Creates and saves a staff user with the given email and password.
         """
+        if not phone_number:
+            raise ValueError('Users must have an phone address')
+        if not name:
+            raise ValueError('Users must have name')
         user = self.create_user(
 
             phone_number,
@@ -195,4 +198,17 @@ class Payment_report(models.Model):
 
     class Meta:
         verbose_name_plural = "Payment_Report"
+        ordering = ['-id']
+
+
+class ClientMessage(models.Model):
+    email = models.EmailField(max_length=250, blank=False)
+    subject = models.CharField(max_length=200, blank=False)
+    clientmessage = models.CharField(max_length=200, blank=False)
+
+    def __str__(self):
+        return f'{self.email}'
+
+    class meta:
+        verbose_name_plural = "Client Message"
         ordering = ['-id']

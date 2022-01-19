@@ -27,6 +27,11 @@ from .filters import OrderFilter
 from users.forms import Payment_report_Form
 import requests, math, random
 from .models import Payment_report
+from django.contrib import messages
+
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger'
+}
 
 now = timezone.now()
 
@@ -106,21 +111,26 @@ def verify_tenant(request):
 
 def sign_up(request):
     form = UserForm()
+
     if request.method == 'POST':
         form = UserForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('sign_in')
         else:
+            form = UserForm()
+            messages.error(request, "some credential not match ")
             return redirect('sign_up')
+
     context = {
-        'form': form
+        'form': form,
+
     }
 
     return render(request, 'html/signup.html', context)
 
 
-# @login_required
+@login_required
 def lessor(request):
     user = request.user
     request_property_all = Request_Property.objects.filter(owner_name=user).filter(status_view='request').order_by(
@@ -154,6 +164,7 @@ def lessor(request):
 
 
 # car tenant approved
+@login_required
 def car_tenant_approved(request):
     user = request.user
     tenant_property_approved = Request_Property.objects.filter(user_request=user).filter(status_view='approved').filter(
@@ -166,6 +177,7 @@ def car_tenant_approved(request):
 
 
 # house tenant approved
+@login_required
 def house_tenant_approved(request):
     user = request.user
     tenant_property_approved = Request_Property.objects.filter(user_request=user).filter(status_view='approved').filter(
@@ -178,6 +190,7 @@ def house_tenant_approved(request):
 
 
 # land tenant approved
+@login_required
 def land_tenant_approved(request):
     user = request.user
     tenant_property_approved = Request_Property.objects.filter(user_request=user).filter(status_view='approved').filter(
@@ -190,6 +203,7 @@ def land_tenant_approved(request):
 
 
 # other tenant approved
+@login_required
 def other_tenant_approved(request):
     user = request.user
     tenant_property_approved = Request_Property.objects.filter(user_request=user).filter(status_view='approved').filter(
@@ -290,6 +304,7 @@ def view_property_house(request):
 
 
 # view property full detail
+@login_required
 def view_property_detail(request, pk):
     user = request.user
     Property_detail = get_object_or_404(Property_registration, id=pk)
@@ -306,6 +321,7 @@ def view_property_detail(request, pk):
 
 
 # view property full detail tenant from search
+@login_required
 def view_property_detail_tenant(request, pk):
     user = request.user
     Property_detail = get_object_or_404(Property_registration, id=pk)
@@ -382,6 +398,7 @@ def request_pro(request, pk):
     return redirect('tenant')
 
 
+@login_required
 def notification_detail(request, id):
     notification_det = Request_Property.objects.filter(pk=id)
     context = {
@@ -391,6 +408,7 @@ def notification_detail(request, id):
 
 
 # view all notification lessor
+@login_required
 def all_notification_lessor(request):
     user = request.user
     request_property_all = Request_Property.objects.filter(owner_name=user).filter(status_view='request').order_by(
@@ -403,6 +421,7 @@ def all_notification_lessor(request):
 
 
 # view all notification tenant
+@login_required
 def all_notification_tenant(request):
     user = request.user
     all_notification_deny_and_approve = Q(Q(status_view='approved') | Q(status_view='denied'))
@@ -416,6 +435,7 @@ def all_notification_tenant(request):
 
 
 # section to decline request you made on property
+@login_required
 def decline_request_property(request, pk):
     user = request.user
     Property_detail = get_object_or_404(Property_registration, id=pk)
@@ -427,6 +447,7 @@ def decline_request_property(request, pk):
 
 
 # section to see all request  for tenant
+@login_required
 def view_request_tenant_all(request):
     user = request.user
     view_request_made = Request_Property.objects.filter(user_request=user).order_by('-id')
@@ -437,6 +458,7 @@ def view_request_tenant_all(request):
 
 
 # section to approve property
+@login_required
 def view_request_tenant_detail(request, id):
     user = request.user
     request_tenant_detail = Request_Property.objects.filter(pk=id)
@@ -451,6 +473,7 @@ def view_request_tenant_detail(request, id):
     return render(request, 'html/view_request_tenant_detail.html', context)
 
 
+@login_required
 def approve_property(request, pk):
     property_to_approve = get_object_or_404(Request_Property, pk=pk)
     prop_to = property_to_approve.property_requested.id
@@ -470,6 +493,7 @@ def approve_property(request, pk):
 
 
 # deny tenant to use this property
+@login_required
 def deny_property(request, pk):
     property_to_approve = get_object_or_404(Request_Property, pk=pk)
     form = RequestForm(request.POST or None, instance=property_to_approve)
@@ -486,7 +510,7 @@ def deny_property(request, pk):
 
 
 # view car renting property and payment options
-
+@login_required
 def view_rent_car_detail(request, id):
     user = request.user
 
@@ -499,6 +523,7 @@ def view_rent_car_detail(request, id):
     return render(request, 'html/view_rent_car_detail.html', context)
 
 
+@login_required
 def view_rent_house_detail(request, id):
     user = request.user
     tenant_property_approved = Request_Property.objects.filter(user_request=user).filter(status_view='approved').filter(
@@ -509,6 +534,7 @@ def view_rent_house_detail(request, id):
     return render(request, 'html/view_rent_house_detail.html', context)
 
 
+@login_required
 def view_rent_land_detail(request, id):
     user = request.user
     tenant_property_approved = Request_Property.objects.filter(user_request=user).filter(status_view='approved').filter(
@@ -519,6 +545,7 @@ def view_rent_land_detail(request, id):
     return render(request, 'html/view_rent_land_detail.html', context)
 
 
+@login_required
 def view_rent_other_detail(request, id):
     user = request.user
     tenant_property_approved = Request_Property.objects.filter(user_request=user).filter(status_view='approved').filter(
@@ -529,6 +556,7 @@ def view_rent_other_detail(request, id):
     return render(request, 'html/view_rent_other_detail.html', context)
 
 
+@login_required
 def profile_tenant(request):
     user = request.user
     context = {
@@ -538,6 +566,7 @@ def profile_tenant(request):
 
 
 # profile for lessor
+@login_required
 def profile_lessor(request):
     user = request.user
     context = {
@@ -546,6 +575,7 @@ def profile_lessor(request):
     return render(request, 'html/profile_lessor.html', context)
 
 
+@login_required
 def payment_landlordd(request, id):
     payment_reference = str(math.floor(1000000 + random.random() * 9000000))
     request_property = get_object_or_404(Request_Property, pk=id)
@@ -573,6 +603,7 @@ def payment_landlordd(request, id):
     # if form.is_valid():
 
 
+@login_required
 def payment_landlord(request, id):
     user = request.user
     # amount = request.POST['rent']
@@ -605,6 +636,7 @@ def payment_landlord(request, id):
     return redirect('tenant')
 
 
+@login_required
 def home_tenant(request):
     user = request.user
     all_property = Property_registration.objects.filter(available=True)
@@ -625,6 +657,7 @@ def home_tenant(request):
     return render(request, 'html/home_tenant.html', context)
 
 
+@login_required
 def pay_rent_car(request, id):
     user = request.user
     form = Payment_report_Form()
@@ -666,14 +699,17 @@ def pay_rent_car(request, id):
     return render(request, 'html/pay_rent_car.html', context)
 
 
+@login_required
 def pay_rent_house(request):
     return render(request, 'html/pay_rent_house.html')
 
 
+@login_required
 def pay_rent_land(request):
     return render(request, 'html/pay_rent_land.html')
 
 
+@login_required
 def pay_rent_other(request):
     return render(request, 'html/pay_rent_other.html')
 
@@ -693,4 +729,4 @@ def test_view(req):
 @api_view(['POST'])
 def payment_response(request):
     if request.method == 'POST':
-        print(" requets body",request.body)
+        print(" requets body", request.body)

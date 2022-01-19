@@ -1,4 +1,5 @@
 from django import forms
+from django.core import validators
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
 
@@ -11,8 +12,9 @@ User = get_user_model()
 
 
 class UserForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput)
-    password_2 = forms.CharField(label='Confirm Password', widget=forms.PasswordInput)
+    password = forms.CharField(widget=forms.PasswordInput, error_messages={'password': 'password must match'})
+    password_2 = forms.CharField(label='Confirm Password', widget=forms.PasswordInput,
+                                 error_messages={'password': 'password must match'})
 
     class Meta:
         model = User

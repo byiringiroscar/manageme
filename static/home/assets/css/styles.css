@@ -199,6 +199,7 @@ the website, in dark theme
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-right: 40;
 }
 
 .nav__logo,
@@ -244,6 +245,7 @@ the website, in dark theme
     padding: 4rem 0 0 3rem;
     border-radius: 1rem 0 0 1rem;
     transition: .3s;
+
     z-index: var(--z-fixed);
   }
 }

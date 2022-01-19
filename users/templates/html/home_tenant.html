@@ -334,7 +334,7 @@
 
 <section class="content">
     <div class="body_scroll">
-        <div class="container">
+        <div class="row">
             <div class="row">
                 <div class="col-lg-7 col-md-6 col-sm-12">
 
@@ -343,8 +343,7 @@
                 </div>
 
             </div>
-        </div>
-        <div class="container-fluid">
+            <div class="container-fluid">
 
             <div class="row">
                 <div class="col-md-12">
@@ -375,10 +374,10 @@
                                                         <div class="card">
                                                             <div class="body product_item">
                                                                 <span class="label onsale">Renting</span>
-                                                                <img src="{{search.property_image.url}}" alt="Product" class="" width="450" height="300"/>
+                                                                <a href="{% url 'view_property_detail_tenant' search.id %}"><img src="{{search.property_image.url}}" alt="Product" class="" width="450" height="300"/></a>
                                                                 <div class="product_details">
-                                                                    <a href="ec-product-detail.html">Property Name: {{search.property_name}}</a><br>
-                                                                    <a href="ec-product-detail.html">Property Type: {{search.property_type}}</a>
+                                                                    <a href="">Property Name: {{search.property_name}}</a><br>
+                                                                    <a href="">Property Type: {{search.property_type}}</a>
                                                                     <ul class="product_price list-unstyled">
                                                                         <li class="new_price">{{search.amount_per_month}} Frw</li>
                                                                     </ul>
@@ -402,6 +401,7 @@
 
 
             </div>
+        </div>
         </div>
 
     </div>

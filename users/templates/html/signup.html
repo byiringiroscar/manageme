@@ -7,56 +7,36 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-<html class="no-js " lang="en">
-
-
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-<meta name="description" content="Responsive Bootstrap 4 and web Application ui kit.">
-
-<title>Sign Up</title>
-<!-- Favicon-->
-<link rel="icon" href="favicon.ico" type="image/x-icon">
-<!-- Custom Css -->
-<link rel="stylesheet" href="{% static 'dash/assets/plugins/bootstrap/css/bootstrap.min.css' %}">
-<link rel="stylesheet" href="{% static 'dash/assets/css/style.min.css' %}">
-</head>
-
-<body class="theme-blush">
-{% load crispy_forms_tags %}
-
-<div class="authentication">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-sm-12">
-                <form class="card auth_form" action="" method="POST" enctype="multipart/form-data">
+<div class="authentication mt-5">
+    <div class="container mt-5">
+        <div class="row mt-5">
+            <div class="col-lg-6 col-md-12 mt-5 col-sm-12 mt-5">
+                <form class="card auth_form mt-5" action="" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
-                    <div class="header">
+
+
+                    <div class="container mt-5">
+                        <div class="">
 <!--                        <img class="logo" src="{% static 'dash/assets/images/logo.svg' %}" alt="">-->
                         <h5>Sign Up</h5>
                     </div>
-                    <div class="body">
-                        <div class="input-group mb-2">
+                        <div class="">
                             {{form.name|as_crispy_field}}
 
                         </div>
-                        <div class="input-group mb-2">
+                        <div class="">
                             {{form.phone_number|as_crispy_field}}
                         </div>
-                        <div class="input-group mb-2">
-                        </div>
-                        <div class="input-group mb-2">
+                        <div class="">
                             {{form.user_login|as_crispy_field}}
                         </div>
-                        <div class="input-group mb-2">
+                        <div class="">
                             {{form.user_image|as_crispy_field}}
                         </div>
-                        <div class="input-group mb-2">
+                        <div class="">
                             {{form.password|as_crispy_field}}
                         </div>
-                        <div class="input-group mb-2">
+                        <div class="">
                             {{form.password_2|as_crispy_field}}
                         </div>
 
@@ -64,6 +44,15 @@
                         <div class="signin_with mt-2">
                             <a class="link" href="{% url 'sign_in' %}">You already have account</a>
                         </div>
+                        {% if messages %}
+                        {% for messages in messages %}
+
+
+                        <div class="alert alert-{{ message.tags }}">
+                                {{ message }}
+                        </div>
+                        {% endfor %}
+                        {% endif %}
                     </div>
                 </form>
                 <div class="copyright text-center">
@@ -72,23 +61,15 @@
                     <span><a href="templatespoint.net">ManageMe</a></span>
                 </div>
             </div>
-            <div class="col-lg-8 col-sm-12">
-                <div class="card">
-                    <img src="https://frumrental.com/Content/images/Home_images/Tenant.svg"   width="500px" height="500px" alt="Sign Up" />
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="mt-5" >
+                    <img src="{% static 'home/assets/img/greet.png' %}"   width="500px" height="600px" alt="Sign Up" />
                 </div>
             </div>
+
         </div>
     </div>
 </div>
-
-
-<!-- Jquery Core Js -->
-<script src="{% static 'dash/assets/bundles/libscripts.bundle.js' %}"></script>
-<script src="{% static 'dash/assets/bundles/vendorscripts.bundle.js' %}"></script> <!-- Lib Scripts Plugin Js -->
-</body>
-
-
-</html>
 
 
 {% endblock %}

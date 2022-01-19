@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from users.models import Property_registration
+from users.models import Property_registration, ClientMessage
 
 from django.contrib.auth import authenticate
 from phonenumber_field.modelfields import PhoneNumberField
@@ -56,3 +56,10 @@ class Post_property_serializer(serializers.ModelSerializer):
     def get_username_from_author(self, blog_posted_by):
         username = blog_posted_by.owner.username
         return username
+
+
+# api for message from client on landing page
+class ClientMessageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ClientMessage
+        fields = '__all__'

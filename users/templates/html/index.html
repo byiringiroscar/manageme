@@ -103,7 +103,7 @@
             <!--==================== ABOUT ====================-->
             <section class="about section container" id="about">
                 <div class="about__container grid">
-                    <img src="assets/img/about.png" alt="" class="about__img">
+                    <img src="{% static 'home/assets/img/housecar.gif' %}" alt="" class="about__img" style="height: 450px; width: 400px;">
 
                     <div class="about__data">
                         <h2 class="section__title about__title">
@@ -126,17 +126,15 @@
                             </p>
                             <p class="about__details-description">
                                 <i class="ri-checkbox-fill about__details-icon"></i>
-                               100% money is transact guaranteed to Lessor.
+                               95% money is transact guaranteed to Lessor.
                             </p>
                             <p class="about__details-description">
                                 <i class="ri-checkbox-fill about__details-icon"></i>
-                                100% money back guaranteed for Lessor.
+                                95% money back guaranteed for Lessor.
                             </p>
                         </div>
 
-<!--                        <a href="#" class="button&#45;&#45;link button&#45;&#45;flex">-->
-<!--                            Shop Now <i class="ri-arrow-right-down-line button__icon"></i>-->
-<!--                        </a>-->
+
                     </div>
                 </div>
             </section>
@@ -153,7 +151,7 @@
                             <div class="steps__card-number">01</div>
                             <h3 class="steps__card-title">Sign Up</h3>
                             <p class="steps__card-description">
-                                We sign up you will be able to login and start to use this product.
+                                sign up you will be able to login and start to use this System, you can either sign up as lessor or tenant.
                             </p>
                         </div>
 
@@ -161,7 +159,7 @@
                             <div class="steps__card-number">02</div>
                             <h3 class="steps__card-title">Register your Property</h3>
                             <p class="steps__card-description">
-                                For registering Property you will be able to get new tenant .
+                                Register as Lessor you will be able to register your Property based on Location, price and Category .
                             </p>
                         </div>
 
@@ -169,7 +167,7 @@
                             <div class="steps__card-number">03</div>
                             <h3 class="steps__card-title">Search Property</h3>
                             <p class="steps__card-description">
-                               for Tenant you can search property by Id, location and lessor's account.
+                               Register As Tenant you will be able to search property and make request for it and get way to pay your renting property in installement
                             </p>
                         </div>
                     </div>
@@ -190,24 +188,9 @@
                     <article class="product__card">
                         <div class="product__circle"></div>
 
-                        <img src="{% static 'dash/assets/images/image-gallery/car.png' %}" alt="" class="product__img">
-
-
-
-
-                        <button class="button--flex product__button">
-                            <i class="ri-shopping-bag-line"></i>
-                        </button>
-                    </article>
-
-                    <article class="product__card">
-                        <div class="product__circle"></div>
-
-                        <img src="{% static 'dash/assets/images/image-gallery/house.jpg' %}" alt="" class="product__img">
-
-
-
-
+                        <img src="{% static 'dash/assets/images/image-gallery/car.png' %}" alt="" class="product__img"style="height:200px; width:200px;">
+                        <h3 class="product__title mt-5"></h3>
+                        <span class="product__price">Car Renting</span>
 
                         <button class="button--flex product__button">
                             <i class="ri-shopping-bag-line"></i>
@@ -217,10 +200,18 @@
                     <article class="product__card">
                         <div class="product__circle"></div>
 
-                        <img src="{% static 'dash/assets/images/image-gallery/other.jpg' %}" alt="" class="product__img">
+                        <img src="{% static 'dash/assets/images/image-gallery/house_vecc.png' %}" alt="" class="product__img" style="height:200px; width:200px;">
+                            <h3 class="product__title mt-5"></h3>
+                        <span class="product__price">House Renting</span>
+                        <button class="button--flex product__button">
+                            <i class="ri-shopping-bag-line"></i>
+                        </button>
+                    </article>
+                    <article class="product__card">
 
-
-
+                        <img src="{% static 'dash/assets/images/image-gallery/lan2.jpg' %}" alt="" class="product__img" style="height:200px; width:200px;">
+                            <h3 class="product__title mt-5"></h3>
+                        <span class="product__price">Land Renting</span>
                         <button class="button--flex product__button">
                             <i class="ri-shopping-bag-line"></i>
                         </button>
@@ -229,14 +220,15 @@
                     <article class="product__card">
                         <div class="product__circle"></div>
 
-                        <img src="{% static 'dash/assets/images/image-gallery/lan.jpg' %}" alt="" class="product__img">
-
-
-
+                        <img src="{% static 'dash/assets/images/image-gallery/other.jpg' %}" alt="" class="product__img" style="height:200px; width:200px;">
+                        <h3 class="product__title mt-5"></h3>
+                        <span class="product__price">Others Renting</span>
                         <button class="button--flex product__button">
                             <i class="ri-shopping-bag-line"></i>
                         </button>
                     </article>
+
+
 
 
                 </div>
@@ -372,28 +364,32 @@
                         </div>
                     </div>
 
-                    <form action="" class="contact__form">
+                    <form action="" class="contact__form" method="post" id="form">
+                        {% csrf_token %}
                         <div class="contact__inputs">
                             <div class="contact__content">
-                                <input type="email" placeholder=" " class="contact__input">
+                                <input type="email" placeholder=" " id="email" class="contact__input">
                                 <label for class="contact__label">Email</label>
                             </div>
 
                             <div class="contact__content">
-                                <input type="text" placeholder=" " class="contact__input">
+                                <input type="text" id="subject" placeholder=" " class="contact__input">
                                 <label  class="contact__label">Subject</label>
                             </div>
 
                             <div class="contact__content contact__area">
-                                <textarea name="message" placeholder=" " class="contact__input"></textarea>                              
+                                <textarea name="message" id="clientmessage" placeholder=" " class="contact__input"></textarea>
                                 <label class="contact__label">Message</label>
                             </div>
                         </div>
 
-                        <button class="button button--flex">
+                        <button type="submit" class="button button--flex" value="add">
                             Send Message
                             <i class="ri-arrow-right-up-line button__icon"></i>
                         </button>
+                        <div id="results">
+
+                        </div>
                     </form>
                 </div>
             </section>
@@ -468,5 +464,38 @@
         
         <!--=============== MAIN JS ===============-->
         <script src="{% static 'home/assets/js/main.js' %}"></script>
+        <script>
+        var forn = document.getElementById('form')
+        form.addEventListener('submit', function(e){
+            // auto submission
+            e.preventDefault()
+            var email = document.getElementById('email').value
+            var subject = document.getElementById('subject').value
+            var clientmessage = document.getElementById('clientmessage').value
+            // fetch post request
+
+            fetch("http://127.0.0.1:8000/api/sendmessage/", {
+                method: 'POST',
+                body:JSON.stringify({
+                    email:email,
+                    subject:subject,
+                    clientmessage: clientmessage
+                }),
+                headers:{
+                    "Content-Type": "application/json; charset=UTF-8"
+                }
+            }).then(function(response){
+                return response.json()
+            }).then(function(data){
+                console.log(data)
+                var results = document.getElementById('results')
+                results.innerHTML = '<p style="color:white;">message sent</p>'
+            })
+        })
+
+
+
+
+        </script>
     </body>
 </html>
